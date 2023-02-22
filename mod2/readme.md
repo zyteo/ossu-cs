@@ -6,9 +6,9 @@ https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programm
 
 | Lecture Video | Completion         |
 | ------------: | ------------------ |
-|             1 | &check;            |
-|             2 | :heavy_check_mark: |
-|             3 | :white_check_mark: |
+|             1 | :white_check_mark: |
+|             2 |                    |
+|             3 |                    |
 |             4 |                    |
 |             5 |                    |
 |             6 |                    |
@@ -19,32 +19,47 @@ https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programm
 |            11 |                    |
 |            12 |                    |
 
-| Lecture Code | Completion |
-| -----------: | ---------- |
-|            1 |            |
-|            2 |            |
-|            3 |            |
-|            4 |            |
-|            5 |            |
-|            6 |            |
-|            7 |            |
-|            8 |            |
-|            9 |            |
-|           10 |            |
-|           11 |            |
-|           12 |            |
+| Lecture Slides | Completion         |
+| -------------: | ------------------ |
+|              1 | :white_check_mark: |
+|              2 | :white_check_mark: |
+|              3 |                    |
+|              4 |                    |
+|              5 |                    |
+|              6 |                    |
+|              7 |                    |
+|              8 |                    |
+|              9 |                    |
+|             10 |                    |
+|             11 |                    |
+|             12 |                    |
 
-| In-Class Questions and Video | Completion |
-| ---------------------------: | ---------- |
-|                            1 |            |
-|                            2 |            |
-|                            3 |            |
-|                            4 |            |
-|                            5 |            |
-|                            6 |            |
-|                            7 |            |
-|                            8 |            |
-|                            9 |            |
+| Lecture Code | Completion         |
+| -----------: | ------------------ |
+|            1 | :white_check_mark: |
+|            2 |                    |
+|            3 |                    |
+|            4 |                    |
+|            5 |                    |
+|            6 |                    |
+|            7 |                    |
+|            8 |                    |
+|            9 |                    |
+|           10 |                    |
+|           11 |                    |
+|           12 |                    |
+
+| In-Class Questions and Video | Completion         |
+| ---------------------------: | ------------------ |
+|                            1 | :white_check_mark: |
+|                            2 |                    |
+|                            3 |                    |
+|                            4 |                    |
+|                            5 |                    |
+|                            6 |                    |
+|                            7 |                    |
+|                            8 |                    |
+|                            9 |                    |
 
 | Assignment | Completion |
 | ---------: | ---------- |
