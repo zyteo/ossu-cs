@@ -7,7 +7,7 @@ https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programm
 | Lecture Video | Completion         |
 | ------------: | ------------------ |
 |             1 | :white_check_mark: |
-|             2 |                    |
+|             2 | :white_check_mark: |
 |             3 |                    |
 |             4 |                    |
 |             5 |                    |
@@ -52,7 +52,7 @@ https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programm
 | In-Class Questions and Video | Completion         |
 | ---------------------------: | ------------------ |
 |                            1 | :white_check_mark: |
-|                            2 |                    |
+|                            2 | :white_check_mark: |
 |                            3 |                    |
 |                            4 |                    |
 |                            5 |                    |
