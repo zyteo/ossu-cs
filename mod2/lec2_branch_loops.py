@@ -45,8 +45,6 @@ elif x > y:
    print("y is smaller")
 print("thanks!")
 
-
-
 ###################
 # EXAMPLE: remainder 
 ###################
@@ -56,18 +54,53 @@ if num % 2 == 0:
 else:
    print("number is odd")
 
-
 ###################
 # EXAMPLE: while loops 
 # Try expanding this code to show a sad face if you go right
 # twice and flip the table any more times than that. 
 # Hint: use a counter
 ###################
+counter = 0
 n = input("You are in the Lost Forest\n****************\n****************\n :)\n****************\n****************\nGo left or right? ")
-while n == "right" or n == "Right":
-   n = input("You are in the Lost Forest\n****************\n******       ***\n  (╯°□°）╯︵ ┻━┻\n****************\n****************\nGo left or right? ")
+n = n.lower()
+while n == "right":
+    if counter < 1:
+        counter += 1
+        n = input("You are in the Lost Forest\n****************\n****************\n :)\n****************\n****************\nGo left or right? ")
+        n = n.lower()
+    elif counter == 1:
+        counter += 1
+        n = input("You are in the Lost Forest\n****************\n******       ***\n  :( \n****************\n****************\nGo left or right? ")
+        n = n.lower()
+    elif counter > 1:
+        n = input("You are in the Lost Forest\n****************\n******       ***\n  (╯°□°）╯︵ ┻━┻\n****************\n****************\nGo left or right? ")
+        n = n.lower()
 print("\nYou got out of the Lost Forest!\n\o/")
 
+
+# alternative method
+counter = -1
+n = "right"
+# set n to lower case
+
+while n == "right":
+    counter += 1
+    print("You are in the Lost Forest")
+    print("****************\n****************")
+
+    if counter < 2:
+        print(":)")
+    elif counter == 2:
+        print(":(")
+    else:
+        print("  (╯°□°）╯︵ ┻━┻")
+
+    print("****************\n****************")
+
+    n = input("Go left or right? ")
+    n = n.lower()
+          
+print("\nYou got out of the Lost Forest!\n\o/")
 
 
 n = 0
