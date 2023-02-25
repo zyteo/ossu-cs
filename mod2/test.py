@@ -1,22 +1,21 @@
-###################
-# EXAMPLE: while loops 
-# Try expanding this code to show a sad face if you go right
-# twice and flip the table any more times than that. 
-# Hint: use a counter
-###################
-counter = 0
-n = input("You are in the Lost Forest\n****************\n****************\n :)\n****************\n****************\nGo left or right? ")
-n = n.lower()
-while n == "right":
-    if counter < 1:
-        counter += 1
-        n = input("You are in the Lost Forest\n****************\n****************\n :)\n****************\n****************\nGo left or right? ")
-        n = n.lower()
-    elif counter == 1:
-        counter += 1
-        n = input("You are in the Lost Forest\n****************\n******       ***\n  :( \n****************\n****************\nGo left or right? ")
-        n = n.lower()
-    elif counter > 1:
-        n = input("You are in the Lost Forest\n****************\n******       ***\n  (╯°□°）╯︵ ┻━┻\n****************\n****************\nGo left or right? ")
-        n = n.lower()
-print("\nYou got out of the Lost Forest!\n\o/")
+ans = 0
+abs_x = 0
+neg_flag = False
+x = int(input("Enter an integer: "))
+if x < 0:
+   neg_flag = True
+   abs_x = -x
+while ans**2 < x:
+   ans = ans + 1
+if ans**2 == x:
+   print("Square root of", x, "is", ans)
+else:
+   print(x, "is not a perfect square")
+   if neg_flag:
+        while ans**2 < abs_x:
+            ans = ans + 1
+        if ans**2 == abs_x:
+            print("Square root of", x, "is", ans, "i")
+        else:  
+            # for example, if x is -5. √-5 = √5 * √-1, so answer is √5i, since √-1 = i
+            print("Square root of", x, "is", ans, "√", abs_x, "i")
