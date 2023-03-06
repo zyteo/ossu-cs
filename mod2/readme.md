@@ -24,7 +24,7 @@ https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programm
 |              1 | :white_check_mark: |
 |              2 | :white_check_mark: |
 |              3 | :white_check_mark: |
-|              4 |      :white_check_mark:               |
+|              4 | :white_check_mark: |
 |              5 |                    |
 |              6 |                    |
 |              7 |                    |
