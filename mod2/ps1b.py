@@ -1,5 +1,5 @@
-# Assignment 1 - Part A
-# Started 14 Mar 2023 by zyteo
+# Assignment 1 - Part B
+# Started 16 Mar 2023 by zyteo
 # Completed 16 Mar 2023
 
 # Your program should ask the user to enter the following variables: 
@@ -24,6 +24,13 @@ if total_cost <= 0:
     print("Error: total cost must be greater than 0")
     exit()
 
+# 4.The semiannual salary raise (semi_annual_raise)
+semi_annual_raise = float(input("Please enter the semi-annual raise (if 3%, write 0.03): "))
+# if semi_annual_raise is not a valid value, print an error message and exit the program
+if semi_annual_raise <= 0 or semi_annual_raise > 1:
+    print("Error: semi-annual raise must be greater than 0 and not more than 1")
+    exit()
+
 # need to calculate the months required for the down payment
 # need to initialise some variables to help in calculations
 r = 0.04
@@ -38,7 +45,18 @@ months = 0
 # can't use a for loop because we don't know how many months it will take
 # so i use a while loop that runs as long as the current savings is less than the down payment
 while current_savings < down_payment:
-    current_savings = current_savings * (1 + r_monthly) + monthly_savings
-    months += 1
+    # raise is made after every 6 months. have to use modulo 6 instead of 7, because first month is 0
+    # so for example, months = 0,1,2,3,4,5,6
+    # technically months = 5 is the 6th month. but you only get the raise AFTER the 6th month, which is where months = 6, so you have to use modulo 6
+    if (months % 6) == 0 and months != 0:
+        annual_salary = annual_salary * (1 + semi_annual_raise)
+        monthly_salary = annual_salary / 12
+        monthly_savings = monthly_salary * portion_saved
+        current_savings = current_savings * (1 + r_monthly) + monthly_savings
+        months += 1
+    else:
+        current_savings = current_savings * (1 + r_monthly) + monthly_savings
+        months += 1
+    
 
 print("Number of months: ", months)
