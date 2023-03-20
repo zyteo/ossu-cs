@@ -117,6 +117,7 @@ print(warm)
 ## EXAMPLE: cloning
 #########################
 cool = ['blue', 'green', 'grey']
+# chill is a cloned copy of cool
 chill = cool[:]
 chill.append('black')
 print(chill)
@@ -151,11 +152,13 @@ print(brightcolors)
 ###############################
 ## EXAMPLE: mutating a list while iterating over it
 ###############################
+# should avoid this because if an element is removed from L1, it will affect the indexing
 def remove_dups(L1, L2):
     for e in L1:
         if e in L2:
             L1.remove(e)
       
+# should do this instead and make a copy of L1.
 def remove_dups_new(L1, L2):
     L1_copy = L1[:]
     for e in L1_copy:
@@ -182,9 +185,11 @@ print(cool)
 print(warm)
 
 colors1 = [cool]
-print(colors1)
+print(colors1) 
+# [['blue', 'green']]
 colors1.append(warm)
-print('colors1 = ', colors1)
+print('colors1 = ', colors1) 
+# [['blue', 'green'],['red', 'yellow', 'orange']]
 
 colors2 = [['blue', 'green'],
           ['red', 'yellow', 'orange']]
@@ -192,10 +197,14 @@ print('colors2 =', colors2)
 
 warm.remove('red') 
 print('colors1 = ', colors1)
+# [['blue', 'green'],['yellow', 'orange']]
 print('colors2 =', colors2)
+# [['blue', 'green'], ['red', 'yellow', 'orange']]
 
 for e in colors1:
     print('e =', e)
+# ['blue', 'green']
+# ['yellow', 'orange']
 
 for e in colors1:
     if type(e) == list:
@@ -203,17 +212,29 @@ for e in colors1:
             print(e1)
     else:
         print(e)
+# blue
+# green
+# yellow
+# orange
 
 flat = cool + warm
 print('flat =', flat)
+# ['blue', 'green','yellow', 'orange']
 
 print(flat.sort())
+# None
 print('flat =', flat)
+# ['blue', 'green','orange', 'yellow']
+
 
 new_flat = sorted(flat, reverse = True)
 print('flat =', flat)
+# ['blue', 'green','orange', 'yellow']
 print('new_flat =', new_flat)
+# ['yellow', 'orange', 'green', 'blue']
 
 cool[1] = 'black'
 print(cool)
+# ['blue', 'black']
 print(colors1)
+# [['blue', 'black'],['yellow', 'orange']]
