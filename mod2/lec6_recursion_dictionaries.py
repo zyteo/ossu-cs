@@ -16,11 +16,14 @@ def Towers(n, fr, to, spare):
     if n == 1:
         printMove(fr, to)
     else:
+        # move n-1 to the spare peg first
         Towers(n-1, fr, spare, to)
+        # move the last one to the destination peg
         Towers(1, fr, to, spare)
+        # then move the n-1 from the spare peg to the destination peg
         Towers(n-1, spare, to, fr)
 
-# print(Towers(4, 'P1', 'P2', 'P3'))
+print(Towers(4, 'P1', 'P2', 'P3'))
 
 #####################################
 # EXAMPLE:  fibonacci
@@ -44,6 +47,7 @@ def isPalindrome(s):
         s = s.lower()
         ans = ''
         for c in s:
+            # only want the alphabet, no punctuation, spaces, etc.
             if c in 'abcdefghijklmnopqrstuvwxyz':
                 ans = ans + c
         return ans
@@ -52,15 +56,16 @@ def isPalindrome(s):
         if len(s) <= 1:
             return True
         else:
+            # returns true only if BOTH are true. the recursion lies in the function isPal
             return s[0] == s[-1] and isPal(s[1:-1])
 
     return isPal(toChars(s))
 
-#print(isPalindrome('eve'))
-#
-#print(isPalindrome('Able was I, ere I saw Elba'))
-#
-#print(isPalindrome('Is this a palindrome'))
+print(isPalindrome('eve'))
+
+print(isPalindrome('Able was I, ere I saw Elba'))
+
+print(isPalindrome('Is this a palindrome'))
 
 #####################################
 # EXAMPLE: using dictionaries
@@ -130,7 +135,7 @@ she_loves_you = ['she', 'loves', 'you', 'yeah', 'yeah',
 
 beatles = lyrics_to_frequencies(she_loves_you)
 
-
+# function takes in a dictionary and returns a tuple of the word with the highest frequency and how many times it occurs
 def most_common_words(freqs):
     values = freqs.values()
     best = max(freqs.values())
@@ -140,6 +145,7 @@ def most_common_words(freqs):
             words.append(k)
     return (words, best)
     
+# function takes in a dictionary and count, and returns a list of tuples of words that occur at least that many times
 def words_often(freqs, minTimes):
     result = []
     done = False
@@ -177,6 +183,7 @@ def fib_efficient(n, d):
         d[n] = ans
         return ans
         
+# this dictionary stores the first two values of the fibonacci sequence
 d = {1:1, 2:2}
 
 argToUse = 34

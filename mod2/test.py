@@ -1,12 +1,27 @@
-an_letters = "aefhilmnorsxAEFHILMNORSX"
-word = input("I will cheer for you! Enter a word: ")
-times = int(input("Enthusiasm level (1-10): "))
+def fib(n):
+    if n == 1:
+        return 1
+    elif n == 2:
+        return 2
+    else:
+        return fib(n-1) + fib(n-2)
 
-for character in word:
-   if character in an_letters:
-       print("Give me an " + character + "! " + character)
-   else:
-       print("Give me a  " + character + "! " + character)
-print("What does that spell?")
-for i in range(times):
-    print(word, "!!!")
+
+def fib_efficient(n, d):
+    if n in d:
+        return d[n]
+    else:
+        ans = fib_efficient(n-1, d)+fib_efficient(n-2, d)
+        d[n] = ans
+        return ans
+        
+# this dictionary stores the first two values of the fibonacci sequence
+d = {1:1, 2:2}
+
+argToUse = 30
+print("")
+print('using fib')
+print(fib(argToUse))
+print("")
+print('using fib_efficient')
+print(fib_efficient(argToUse, d))
