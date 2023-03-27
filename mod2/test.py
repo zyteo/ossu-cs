@@ -1,27 +1,15 @@
-def fib(n):
-    if n == 1:
-        return 1
-    elif n == 2:
-        return 2
-    else:
-        return fib(n-1) + fib(n-2)
-
-
-def fib_efficient(n, d):
-    if n in d:
-        return d[n]
-    else:
-        ans = fib_efficient(n-1, d)+fib_efficient(n-2, d)
-        d[n] = ans
-        return ans
+def rev_list_fix(L):
+    """
+    input: L, a list
+    Modifies L such that its elements are in reverse order
+    returns: nothing
+    """
+    L_copy = L[:]
+    L = []
+    for i in range(len(L_copy)):
+        L.append(L_copy[len(L_copy)-i-1])
+    print(L)
         
-# this dictionary stores the first two values of the fibonacci sequence
-d = {1:1, 2:2}
-
-argToUse = 30
-print("")
-print('using fib')
-print(fib(argToUse))
-print("")
-print('using fib_efficient')
-print(fib_efficient(argToUse, d))
+L = [1,2,3,4]
+rev_list_fix(L)
+print(L)

@@ -19,6 +19,11 @@
 ## list index out of range -> sub 1 to j
 ## get same list back -> iterate only over half
 ## --------------------------
+
+# the above code takes the first element, then replaces first element with last element.
+# after that, replaces last element with first element, and so on. but if doing with such method then don't need to iterate over whole list, just half will do.
+
+
 def rev_list(L):
     """
     input: L, a list
