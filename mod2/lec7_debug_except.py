@@ -22,6 +22,17 @@
 
 # the above code takes the first element, then replaces first element with last element.
 # after that, replaces last element with first element, and so on. but if doing with such method then don't need to iterate over whole list, just half will do.
+def rev_list_buggy_fix(L):
+   """
+   input: L, a list
+   Modifies L such that its elements are in reverse order
+   returns: nothing
+   """
+   for i in range(len(L)//2):
+       j = len(L) - i - 1
+       temp = L[i]
+       L[i] = L[j]
+       L[j] = temp
 
 # my fix: create a copy of L, then clear L and append the elements in reverse order
 def rev_list_fix(L):
