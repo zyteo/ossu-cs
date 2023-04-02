@@ -45,7 +45,7 @@ def rev_list_fix(L):
     for i in range(len(L_copy)):
         L[i] = L_copy[len(L_copy)-i-1]
 
-
+# provided code answer
 def rev_list(L):
     """
     input: L, a list
@@ -98,6 +98,40 @@ print(L)
 ## n = 4 adds 4 -> need way to stop going once found a divisible num
 ##              -> use a flag
 ## --------------------------
+
+
+# for a number to be prime, it is only divisible by 1 and itself
+# so n % primes[j] != 0 means that n is not divisible by any of the primes, so it is prime
+# likewise, as long as n % primes[j] == 0, n is not prime, so we can break out of the loop and move on to the next number
+def primes_list_buggy_fix(n):
+    """
+    input: n an integer > 1
+    returns: list of all the primes up to and including n
+    """
+    # initialize primes list
+    primes = []
+    # i create this dict for keeping track of the number of times a number is not divisible by any of the primes
+    checkLength = {"true": 0}
+    if n >= 2:
+        primes.append(2)
+    # go through each elem of primes list
+    for i in range(2, n + 1, 1):
+        # go through each of 2...n
+        print("i: ", i)
+        for j in range(len(primes)):
+            print(j, primes[j])
+            # check if not divisible by elem of list
+            if i % primes[j] != 0:
+                checkLength["true"] += 1
+                if checkLength["true"] == len(primes):
+                    primes.append(i)
+                    checkLength["true"] = 0
+            elif i % primes[j] == 0:
+                break
+    return primes
+
+# provided code answer
+# instead of using a dict, the answer uses the boolean flag is_div
 def primes_list(n):
     """
     input: n an integer > 1
