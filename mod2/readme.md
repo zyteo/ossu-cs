@@ -4,20 +4,20 @@ https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programm
 
 ## Introduction to Computer Science and Programming in Python
 
-| Lecture Video | Completion         |
-| ------------: | ------------------ |
-|             1 | :white_check_mark: |
-|             2 | :white_check_mark: |
-|             3 | :white_check_mark: |
-|             4 | :white_check_mark: |
-|             5 | :white_check_mark: |
-|             6 | :white_check_mark: |
-|             7 | :white_check_mark: |
-|             8 |                    |
-|             9 |                    |
-|            10 |                    |
-|            11 |                    |
-|            12 |                    |
+|                                                       Lecture Video | Completion         |
+| ------------------------------------------------------------------: | ------------------ |
+|                                            1 - What is computation? | :white_check_mark: |
+|                                         2 - Branching and Iteration | :white_check_mark: |
+| 3 - String Manipulation, Guess and Check, Approximations, Bisection | :white_check_mark: |
+|                          4 - Decomposition, Abstractions, Functions | :white_check_mark: |
+|                    5 - Tuples, Lists, Aliasing, Mutability, Cloning | :white_check_mark: |
+|                                         6 - Recursion, Dictionaries | :white_check_mark: |
+|                      7 - Testing, Debugging, Exceptions, Assertions | :white_check_mark: |
+|                                     8 - Object Oriented Programming |                    |
+|                                                                   9 |                    |
+|                                                                  10 |                    |
+|                                                                  11 |                    |
+|                                                                  12 |                    |
 
 | Lecture Slides | Completion         |
 | -------------: | ------------------ |
@@ -42,7 +42,7 @@ https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programm
 |            4 | :white_check_mark: |
 |            5 | :white_check_mark: |
 |            6 | :white_check_mark: |
-|            7 |                    |
+|            7 | :white_check_mark: |
 |            8 |                    |
 |            9 |                    |
 |           10 |                    |
