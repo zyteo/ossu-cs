@@ -13,7 +13,7 @@ https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programm
 |                    5 - Tuples, Lists, Aliasing, Mutability, Cloning | :white_check_mark: |
 |                                         6 - Recursion, Dictionaries | :white_check_mark: |
 |                      7 - Testing, Debugging, Exceptions, Assertions | :white_check_mark: |
-|                                     8 - Object Oriented Programming |                    |
+|                                     8 - Object Oriented Programming | :white_check_mark: |
 |                                                                   9 |                    |
 |                                                                  10 |                    |
 |                                                                  11 |                    |
