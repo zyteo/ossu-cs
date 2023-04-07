@@ -1,31 +1,18 @@
-def get_stats(class_list):
-	new_stats = []
-	for person in class_list:
-		new_stats.append([person[0], person[1], avg(person[1])])
-	return new_stats 
-
-# avg function: version without an exception
-#def avg(grades):
-#    return (sum(grades))/len(grades)
-    
-# avg function: version with an exception
-def avg(grades):
-    try:
-        return sum(grades)/len(grades)
-    except ZeroDivisionError:
-        print('warning: no grades data')
-        return 0.0
+import string
+def get_available_letters(letters_guessed):
+    """
+    letters_guessed: list (of letters), which letters have been guessed so far
+    returns: string (of letters), comprised of letters that represents which letters have not
+      yet been guessed.
+    """
+    # first get all lowercase letters of the alphabet with string package
+    # then replace the letters in letters_guessed with ""
+    remaining_letters = string.ascii_lowercase
+    for alphabet in letters_guessed:
+        remaining_letters = remaining_letters.replace(alphabet, "")
+    return remaining_letters
 
 
-# avg function: version with assert
-# def avg(grades):
-#     assert len(grades) != 0, 'warning: no grades data'
-#     return sum(grades)/len(grades)
-
-    
-test_grades = [[['peter', 'parker'], [80.0, 70.0, 85.0]], 
-              [['bruce', 'wayne'], [100.0, 80.0, 74.0]],
-              [['captain', 'america'], [80.0, 70.0, 96.0]],
-              [['deadpool'], []]]
-
-print(get_stats(test_grades))
+secret_word = "apple"
+letters_guessed = ["e", "i", "k", "p", "r", "s"]
+print(get_available_letters(letters_guessed))
