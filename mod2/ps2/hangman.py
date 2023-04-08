@@ -132,6 +132,33 @@ def get_available_letters(letters_guessed):
 # word contains and how many guesses s/he starts with.
 # 4. The computer keeps track of all the letters the user has not guessed so far and
 # before each turn shows the user the “remaining letters”
+
+# B. User Computer Interaction:
+# The game must be interactive and flow as follows:
+# 1. Before each guess, you should display to the user:
+# a. Remind the user of how many guesses s/he has left after each guess.
+# b. all the letters the user has not yet guessed
+# 2. Ask the user to supply one guess at a time. (Look at the user input
+# requirements below to see what types of inputs you can expect from the user)
+# 3. Immediately after each guess, the user should be told whether the letter is in the computer’s word.
+# 4. After each guess, you should also display to the user the computer’s word, with
+# guessed letters displayed and unguessed letters replaced with an underscore
+# and space (_ )
+# 5. At the end of the guess, print some dashes ()
+# to help separate individual
+# guesses from each other
+
+
+# C. User Input Requirements:
+# 1. You may assume that the user will only guess one character at a time, but the
+# user can choose any number, symbol or letter. Your code should accept capital
+# and lowercase letters as valid guesses!
+# 2. If the user inputs anything besides an alphabet (symbols, numbers), tell the
+# user that they can only input an alphabet. Because the user might do this by
+# accident, they should get 3 warnings at the beginning of the game. Each time
+# they enter an invalid input, or a letter they have already guessed, they should
+# lose a warning. If the user has no warnings left and enters an invalid input,
+# they should lose a guess.
 def hangman(secret_word):
     """
     secret_word: string, the secret word to guess.
@@ -159,11 +186,41 @@ def hangman(secret_word):
     """
     guesses_left = 6
     letters_guessed = []
+    game_running = True
+    user_warning = 3
     print("Welcome to the game Hangman!")
     print("I am thinking of a word that is", len(secret_word), "letters long.")
     print("-" * 13)
     print("You have", guesses_left, "guesses left.")
     print("Available letters:", get_available_letters(letters_guessed))
+    while game_running:
+        # get user input, check if valid alphabet
+        # if yes, convert to lowercase
+        # if no, check user warning.
+        # if warning >= 1, minus 1 and continue
+        # if warning = 0, minus 1 guess and continue
+        user_guess = input("Please guess a letter: ")
+        check_valid_alphabet = str.isalpha(user_guess)
+        if check_valid_alphabet:
+            user_guess = user_guess.lower()
+            # long code here so i skip first
+        else:
+            if user_warning >= 1:
+                user_warning -= 1
+                print(
+                    "Oops! That is not a valid letter. You have",
+                    user_warning,
+                    "warnings left:",
+                    get_guessed_word(secret_word, letters_guessed),
+                )
+                continue
+            else:
+                guesses_left -= 1
+                print(
+                    "Oops! That is not a valid letter. You have no warnings left so you lose one guess:",
+                    get_guessed_word(secret_word, letters_guessed),
+                )
+                continue
 
     pass
 
