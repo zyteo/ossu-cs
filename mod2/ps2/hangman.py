@@ -99,6 +99,7 @@ def get_guessed_word(secret_word, letters_guessed):
             copy = copy.replace(letter, "_ ")
     return copy
 
+
 # 1C) Getting all available letters
 # get_available_letters that takes in one parameter a
 # list of letters, letters_guessed . This function returns a string that is comprised of
@@ -121,6 +122,16 @@ def get_available_letters(letters_guessed):
     return remaining_letters
 
 
+# Game Requirements
+# A. Game Architecture:
+# 1. The computer must select a word at random from the list of available words
+# that was provided in words.txt. The functions for loading the word list and
+# selecting a random word have already been provided for you in hangman.py.
+# 2. Users start with 6 guesses.
+# 3. At the start of the game, let the user know how many letters the computer's
+# word contains and how many guesses s/he starts with.
+# 4. The computer keeps track of all the letters the user has not guessed so far and
+# before each turn shows the user the “remaining letters”
 def hangman(secret_word):
     """
     secret_word: string, the secret word to guess.
@@ -146,7 +157,14 @@ def hangman(secret_word):
 
     Follows the other limitations detailed in the problem write-up.
     """
-    # FILL IN YOUR CODE HERE AND DELETE "pass"
+    guesses_left = 6
+    letters_guessed = []
+    print("Welcome to the game Hangman!")
+    print("I am thinking of a word that is", len(secret_word), "letters long.")
+    print("-" * 13)
+    print("You have", guesses_left, "guesses left.")
+    print("Available letters:", get_available_letters(letters_guessed))
+
     pass
 
 
