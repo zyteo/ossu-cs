@@ -387,6 +387,7 @@ if __name__ == "__main__":
 
     secret_word = choose_word(wordlist)
     hangman(secret_word)
+    # hangman("tact")
 
 ###############
 
