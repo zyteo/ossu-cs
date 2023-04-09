@@ -191,19 +191,30 @@ def hangman(secret_word):
     print("Welcome to the game Hangman!")
     print("I am thinking of a word that is", len(secret_word), "letters long.")
     print("-" * 13)
-    print("You have", guesses_left, "guesses left.")
-    print("Available letters:", get_available_letters(letters_guessed))
     while game_running:
         # get user input, check if valid alphabet
         # if yes, convert to lowercase
         # if no, check user warning.
         # if warning >= 1, minus 1 and continue
         # if warning = 0, minus 1 guess and continue
+        print("You have", guesses_left, "guesses left.")
+        print("Available letters:", get_available_letters(letters_guessed))
         user_guess = input("Please guess a letter: ")
         check_valid_alphabet = str.isalpha(user_guess)
         if check_valid_alphabet:
             user_guess = user_guess.lower()
-            # long code here so i skip first
+            # if user guess is in secret word, say good guess, otherwise say that isn't in the word
+            if user_guess in secret_word:
+                letters_guessed.append(user_guess)
+                print("Good guess:", get_guessed_word(secret_word, letters_guessed))
+                print("-" * 13)
+            else:
+                letters_guessed.append(user_guess)
+                print(
+                    "Oops! That letter is not in my word:",
+                    get_guessed_word(secret_word, letters_guessed),
+                )
+                print("-" * 13)
         else:
             if user_warning >= 1:
                 user_warning -= 1
@@ -213,6 +224,7 @@ def hangman(secret_word):
                     "warnings left:",
                     get_guessed_word(secret_word, letters_guessed),
                 )
+                print("-" * 13)
                 continue
             else:
                 guesses_left -= 1
@@ -220,6 +232,7 @@ def hangman(secret_word):
                     "Oops! That is not a valid letter. You have no warnings left so you lose one guess:",
                     get_guessed_word(secret_word, letters_guessed),
                 )
+                print("-" * 13)
                 continue
 
     pass
