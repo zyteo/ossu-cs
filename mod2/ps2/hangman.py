@@ -159,6 +159,28 @@ def get_available_letters(letters_guessed):
 # they enter an invalid input, or a letter they have already guessed, they should
 # lose a warning. If the user has no warnings left and enters an invalid input,
 # they should lose a guess.
+
+
+# D. Game Rules:
+# 1. The user starts with 3 warnings.
+# 2. If the user inputs anything besides an alphabet (symbols, numbers), tell the
+# user that they can only input an alphabet.
+# a. If the user has one or more warning left, the user should lose one
+# warning. Tell the user the number of remaining warnings.
+# b. If the user has no remaining warnings, they should lose one guess.
+# 3. If the user inputs a letter that has already been guessed, print a message
+# telling the user the letter has already been guessed before.
+# a. If the user has one or more warning left, the user should lose one
+# warning. Tell the user the number of remaining warnings.
+# b. If the user has no warnings, they should lose one guess.
+# 4. If the user inputs a letter that hasn’t been guessed before and the letter is in
+# the secret word, the user loses no guesses.
+# 5. Consonants: If the user inputs a consonant that hasn’t been guessed and the
+# consonant is not in the secret word, the user loses one guess if it’s a
+# consonant.
+# 6. Vowels: If the vowel hasn’t been guessed and the vowel is not in the secret
+# word, the user loses two guesses. Vowels are a, e, i , o, and u. y does not
+# count as a vowel.
 def hangman(secret_word):
     """
     secret_word: string, the secret word to guess.
@@ -203,6 +225,26 @@ def hangman(secret_word):
         check_valid_alphabet = str.isalpha(user_guess)
         if check_valid_alphabet:
             user_guess = user_guess.lower()
+            # if user guess is in letters guessed, say already guessed
+            if user_guess in letters_guessed:
+                if user_warning >= 1:
+                    user_warning -= 1
+                    print(
+                        "Oops! You've already guessed that letter. You have",
+                        user_warning,
+                        "warnings left:",
+                        get_guessed_word(secret_word, letters_guessed),
+                    )
+                    print("-" * 13)
+                    continue
+                else:
+                    guesses_left -= 1
+                    print(
+                        "Oops! You've already guessed that letter. You have no warnings left so you lose one guess:",
+                        get_guessed_word(secret_word, letters_guessed),
+                    )
+                    print("-" * 13)
+                    continue
             # if user guess is in secret word, say good guess, otherwise say that isn't in the word
             if user_guess in secret_word:
                 letters_guessed.append(user_guess)
@@ -215,6 +257,12 @@ def hangman(secret_word):
                     get_guessed_word(secret_word, letters_guessed),
                 )
                 print("-" * 13)
+                # if user guess is a vowel, minus 2 guesses, otherwise minus 1 guess
+                if user_guess in "aeiou":
+                    guesses_left -= 2
+                else:
+                    guesses_left -= 1
+
         else:
             if user_warning >= 1:
                 user_warning -= 1
@@ -234,8 +282,6 @@ def hangman(secret_word):
                 )
                 print("-" * 13)
                 continue
-
-    pass
 
 
 # When you've completed your hangman function, scroll down to the bottom
