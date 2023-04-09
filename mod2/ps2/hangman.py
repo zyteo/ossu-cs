@@ -181,6 +181,16 @@ def get_available_letters(letters_guessed):
 # 6. Vowels: If the vowel hasn’t been guessed and the vowel is not in the secret
 # word, the user loses two guesses. Vowels are a, e, i , o, and u. y does not
 # count as a vowel.
+
+
+# E. Game Termination:
+# 1. The game should end when the user constructs the full word or runs out of
+# guesses.
+# 2. If the player runs out of guesses before completing the word, tell them they
+# lost and reveal the word to the user when the game ends.
+# 3. If the user wins, print a congratulatory message and tell the user their score.
+# 4. The total score is the number of guesses_remaining once the user has
+# guessed the secret_word times the number of unique letters in secret_word .
 def hangman(secret_word):
     """
     secret_word: string, the secret word to guess.
@@ -214,6 +224,18 @@ def hangman(secret_word):
     print("I am thinking of a word that is", len(secret_word), "letters long.")
     print("-" * 13)
     while game_running:
+        if guesses_left <= 0:
+            print("Sorry, you ran out of guesses. The word was", secret_word)
+            game_running = False
+            break
+        if is_word_guessed(secret_word, letters_guessed):
+            print("Congratulations, you won!")
+            print(
+                "Your total score for this game is:",
+                guesses_left * len(set(secret_word)),
+            )
+            game_running = False
+            break
         # get user input, check if valid alphabet
         # if yes, convert to lowercase
         # if no, check user warning.
