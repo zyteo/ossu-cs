@@ -314,7 +314,16 @@ def hangman(secret_word):
 
 # -----------------------------------
 
-
+# match_with_gaps takes two parameters: my_word and other_word. my_word is an
+# instance of a guessed word, in other words, it may have some _ ’s in places (such as
+# ‘t_ _ t’). other_word is a normal English word.
+# This function should return True if the guessed letters of my_word match the
+# corresponding letters of other_word . It should return False if the two words are not
+# of the same length or if a guessed letter in my_word does not match the
+# corresponding character in other_word.
+# Remember that when a letter is guessed, your code reveals all the positions at which
+# that letter occurs in the secret word. Therefore, the hidden letter (_ ) cannot be one
+# of the letters in the word that has already been revealed.
 def match_with_gaps(my_word, other_word):
     """
     my_word: string with _ characters, current guess of secret word

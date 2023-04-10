@@ -15,9 +15,20 @@ def match_with_gaps(my_word, other_word):
     if len(my_word) != len(other_word):
         print("lengths not same", len(my_word), len(other_word))
         return False
-    else:
-        for i in range(len(my_word)):
-            print(my_word[i], other_word[i])
+
+    for i in range(len(my_word)):
+        print(my_word[i], other_word[i])
+        # if both are alphabets and they are not the same, confirm false, so write this part first
+        if (my_word[i] != "_") and (my_word[i] != other_word[i]):
+            print("not same")
+            return False
+        # if both are alphabets and they are the same, continue
+        elif (my_word[i] != "_") and (my_word[i] == other_word[i]):
+            print("same")
+            continue
+        elif my_word[i] == "_":
+            # need to think about this case
+            print("underscore")
 
 
 match_with_gaps("t__t", "tact")
