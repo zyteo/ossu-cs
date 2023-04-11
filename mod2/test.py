@@ -11,6 +11,8 @@ def match_with_gaps(my_word, other_word):
     # then compare length of my_word and other_word, if not same, return false
     # compare each letter of my_word and other_word, if not same, return false
     my_word = my_word.replace(" ", "")
+    alphabets = {}
+    underscores = 0
     print(my_word)
     if len(my_word) != len(other_word):
         print("lengths not same", len(my_word), len(other_word))
@@ -28,7 +30,21 @@ def match_with_gaps(my_word, other_word):
             continue
         elif my_word[i] == "_":
             # need to think about this case
-            print("underscore")
+            # record the number of underscores and store the alphabet count in a dictionary
+            # if the number of underscores is not the same as the total alphabet count, return false
+            underscores += 1
+            if other_word[i] in alphabets:
+                alphabets[other_word[i]] += 1
+            else:
+                alphabets[other_word[i]] = 1
+    print(underscores, sum(alphabets.values()))
+    if underscores != sum(alphabets.values()):
+        return False
+    else:
+        return True
 
 
-match_with_gaps("t__t", "tact")
+# match_with_gaps("t__t", "tact"))
+print(match_with_gaps("ta_t", "taat"))
+# above doesn't work but is pretty close - i realised the error.
+# will edit and change it such that once there is an underscore, for the corresponding alphabet, find all and add to dict
