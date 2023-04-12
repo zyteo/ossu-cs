@@ -34,9 +34,14 @@ def match_with_gaps(my_word, other_word):
             # if the number of underscores is not the same as the total alphabet count, return false
             underscores += 1
             if other_word[i] in alphabets:
-                alphabets[other_word[i]] += 1
+                continue
             else:
-                alphabets[other_word[i]] = 1
+                for x in other_word:
+                    if x == other_word[i]:
+                        if other_word[i] not in alphabets:
+                            alphabets[other_word[i]] = 1
+                        else:
+                            alphabets[other_word[i]] += 1
     print(underscores, sum(alphabets.values()))
     if underscores != sum(alphabets.values()):
         return False
@@ -45,6 +50,4 @@ def match_with_gaps(my_word, other_word):
 
 
 # match_with_gaps("t__t", "tact"))
-print(match_with_gaps("ta_t", "taat"))
-# above doesn't work but is pretty close - i realised the error.
-# will edit and change it such that once there is an underscore, for the corresponding alphabet, find all and add to dict
+print(match_with_gaps("t_at", "taat"))
