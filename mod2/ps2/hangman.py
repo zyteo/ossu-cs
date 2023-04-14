@@ -373,7 +373,11 @@ def match_with_gaps(my_word, other_word):
     else:
         return True
 
-
+# show_possible_matches takes a single parameter: my_word which is an instance of a
+# guessed word, in other words, it may have some _ ’s in places (such as ‘t_ _ t’).
+# This function should print out all words in wordlist (notice where we have defined
+# this at the beginning of the file, line 51) that match my_word . It should print “No
+# matches found” if there are no matches.
 def show_possible_matches(my_word):
     """
     my_word: string with _ characters, current guess of secret word
