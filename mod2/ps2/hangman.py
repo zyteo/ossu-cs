@@ -373,6 +373,7 @@ def match_with_gaps(my_word, other_word):
     else:
         return True
 
+
 # show_possible_matches takes a single parameter: my_word which is an instance of a
 # guessed word, in other words, it may have some _ ’s in places (such as ‘t_ _ t’).
 # This function should print out all words in wordlist (notice where we have defined
@@ -388,8 +389,39 @@ def show_possible_matches(my_word):
              that has already been revealed.
 
     """
-    # FILL IN YOUR CODE HERE AND DELETE "pass"
-    pass
+    # replace "_ " with "_"
+    my_word = my_word.replace("_ ", "_")
+    match_word_holder = []
+    # in a for loop, iterate through the wordlist, first check the length of the word
+    # if length not same, move on. if same, compare first alphabet
+    # if first alphabet not same, move on.
+    # if same, more task to process
+    for word in wordlist:
+        if len(word) != len(my_word):
+            continue
+        else:
+            if word[0] != my_word[0]:
+                continue
+            else:
+                # first alphabet same. now check the rest of the word
+                # check if every alphabet in my_word is same as word for non underscore portions
+                # any part that is not similar, move on to next word. if same, move on to next process
+                # make use of match_with_gaps function. if true, add word to list. if false, move on to next word
+
+                # technically this part below is not needed. but i think it would be faster to do this
+                for i in range(len(my_word)):
+                    if my_word[i] != "_":
+                        if my_word[i] != word[i]:
+                            break
+
+                if match_with_gaps(my_word, word):
+                    match_word_holder.append(word)
+                else:
+                    continue
+    if len(match_word_holder) == 0:
+        print("No matches found")
+    else:
+        print(" ".join(match_word_holder))
 
 
 def hangman_with_hints(secret_word):
