@@ -379,9 +379,10 @@ def match_with_gaps(my_word, other_word):
 # This function should print out all words in wordlist (notice where we have defined
 # this at the beginning of the file, line 51) that match my_word . It should print “No
 # matches found” if there are no matches.
-def show_possible_matches(my_word):
+def show_possible_matches(my_word, letters_guessed):
     """
     my_word: string with _ characters, current guess of secret word
+    letters_guessed: list of letters that have been guessed so far
     returns: nothing, but should print out every word in wordlist that matches my_word
              Keep in mind that in hangman when a letter is guessed, all the positions
              at which that letter occurs in the secret word are revealed.
@@ -418,6 +419,13 @@ def show_possible_matches(my_word):
                     match_word_holder.append(word)
                 else:
                     continue
+
+                for word in match_word_holder:
+                    for i in range(len(word)):
+                        if word[i] in letters_guessed and my_word[i] == "_":
+                            match_word_holder.remove(word)
+                            # i added an extra argument for letters guessed, if the word contains letters that have been guessed, move on to next word
+                            break
     if len(match_word_holder) == 0:
         print("No matches found")
     else:
@@ -485,7 +493,9 @@ def hangman_with_hints(secret_word):
         print("Available letters:", get_available_letters(letters_guessed))
         user_guess = input("Please guess a letter: ")
         if user_guess == "*":
-            show_possible_matches(get_guessed_word(secret_word, letters_guessed))
+            show_possible_matches(
+                get_guessed_word(secret_word, letters_guessed), letters_guessed
+            )
             print("-" * 13)
             continue
         else:
