@@ -14,10 +14,10 @@ https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programm
 |                                         6 - Recursion, Dictionaries | :white_check_mark: |
 |                      7 - Testing, Debugging, Exceptions, Assertions | :white_check_mark: |
 |                                     8 - Object Oriented Programming | :white_check_mark: |
-|                                  9 - Python Classes and Inheritance |                    |
-|                                                                  10 |                    |
-|                                                                  11 |                    |
-|                                                                  12 |                    |
+|                                  9 - Python Classes and Inheritance | :white_check_mark: |
+|                       10 - Understanding Program Efficiency, Part 1 |                    |
+|                       11 - Understanding Program Efficiency, Part 2 |                    |
+|                                          12 - Searching and Sorting |                    |
 
 | Lecture Slides | Completion         |
 | -------------: | ------------------ |
@@ -64,7 +64,7 @@ https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programm
 | ---------: | ------------------ |
 |          0 | :white_check_mark: |
 |          1 | :white_check_mark: |
-|          2 |                    |
+|          2 | :white_check_mark: |
 |          3 |                    |
 |          4 |                    |
 |          5 |                    |
