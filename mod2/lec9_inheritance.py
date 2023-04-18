@@ -135,6 +135,7 @@ class Rabbit(Animal):
         return self.parent2
     def __add__(self, other):
         # returning object of same type as this class
+        # this means self is parent 1, other is parent 2
         return Rabbit(0, self, other)
     def __eq__(self, other):
         # compare the ids of self and other's parents
