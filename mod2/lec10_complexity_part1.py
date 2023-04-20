@@ -6,6 +6,10 @@ Created on Sun Oct  9 11:27:54 2016
 """
 
 def linear_search(L, e):
+    """
+    function takes in a list L and an element e
+    returns True if e is in L and False otherwise
+    """
     found = False
     for i in range(len(L)):
         if e == L[i]:
@@ -15,6 +19,11 @@ def linear_search(L, e):
 testList = [1, 3, 4, 5, 9, 18, 27]
 
 def search(L, e):
+    """
+    assume L is a list and the elements of L are in ascending order
+    returns True if e is in L and False otherwise
+    as long as L[i] > e, we know e is not in L
+    """
     for i in range(len(L)):
         if L[i] == e:
             return True
