@@ -15,7 +15,7 @@ https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programm
 |                      7 - Testing, Debugging, Exceptions, Assertions | :white_check_mark: |
 |                                     8 - Object Oriented Programming | :white_check_mark: |
 |                                  9 - Python Classes and Inheritance | :white_check_mark: |
-|                       10 - Understanding Program Efficiency, Part 1 |                    |
+|                       10 - Understanding Program Efficiency, Part 1 | :white_check_mark: |
 |                       11 - Understanding Program Efficiency, Part 2 |                    |
 |                                          12 - Searching and Sorting |                    |
 
