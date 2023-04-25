@@ -199,7 +199,8 @@ def deal_hand(n):
 
 #
 # Problem #2: Update a hand by removing letters
-#
+# The player starts with a full hand of n letters. As the player spells out words, letters from the set are used up. For example, the player could start with the following hand: a, q, l, m, u, i, l The player could choose to play the word quail. This would leave the following letters in the player's hand: l, m. You will now write a function that takes a hand and a word as inputs, uses letters from that hand to spell the word, and returns a new hand containing only the remaining letters. Your function should not modify the input hand. For example: >>hand = {'a':1, 'q':1, 'l':2, 'm':1, 'u':1, 'i':1} >>display_hand(hand) a q l l m u i>>new_hand = update_hand(hand, 'quail') >>new_hand{'l': 1, 'm': 1} >>display_hand(new_hand) l m>>display_hand(hand) a q l l m u i
+# IMPORTANT: If the player guesses a word that is invalid, either because it is not a real word or because they used letters that they don't actually have in their hand, they still lose the letters from their hand that they did guess as a penalty. Make sure that your implementation accounts for this! Do not assume that the word you are given only uses letters that actually exist in the hand. For example: >>hand = {'j':2, 'o':1, 'l':1, 'w':1, 'n':2} >>display_hand(hand) j j o l w n n>>hand = update_hand(hand, 'jolly') >>hand{'j':1, w':1, 'n':2} >>display_hand(hand) j w n n
 def update_hand(hand, word):
     """
     Does NOT assume that hand contains every letter in word at least as
@@ -218,8 +219,19 @@ def update_hand(hand, word):
     hand: dictionary (string -> int)
     returns: dictionary (string -> int)
     """
+    # convert word to lowercase
+    # make a copy of hand
+    # in a for loop, for each letter in word, minus 1 in the dictionary if have
+    # if value is 0, then do not minus 1
+    # return new hand
+    word = word.lower()
+    copy_hand = hand.copy()
+    for letter in word:
+        if letter in copy_hand.keys():
+            if copy_hand[letter] > 0:
+                copy_hand[letter] -= 1
 
-    pass  # TO DO... Remove this line when you implement this function
+    return copy_hand
 
 
 #
