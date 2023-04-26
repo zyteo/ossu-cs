@@ -249,7 +249,23 @@ def is_valid_word(word, hand, word_list):
     returns: boolean
     """
 
-    pass  # TO DO... Remove this line when you implement this function
+    # first check if word is in word_list. if false, return false
+    # if true, continue
+    # in a loop, check if each letter in word is in hand. if false, return false
+    # when checking, need to make sure that hand has sufficient number of letters to make word. i will make a copy of hand and remove letters as i check them
+    word = word.lower()
+    copy_hand = hand.copy()
+    if word not in word_list:
+        return False
+    else:
+        for letter in word:
+            if letter not in copy_hand:
+                return False
+            else:
+                copy_hand[letter] -= 1
+                if copy_hand[letter] < 0:
+                    return False
+    return True
 
 
 #
@@ -262,8 +278,12 @@ def calculate_handlen(hand):
     hand: dictionary (string-> int)
     returns: integer
     """
-
-    pass  # TO DO... Remove this line when you implement this function
+    # use a loop to add up all the values in hand
+    # return the sum
+    sum_length = 0
+    for key in hand:
+        sum_length += hand[key]
+    return sum_length
 
 
 def play_hand(hand, word_list):
