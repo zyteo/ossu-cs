@@ -14,6 +14,8 @@ import string
 
 VOWELS = "aeiou"
 CONSONANTS = "bcdfghjklmnpqrstvwxyz"
+# account for wildcard
+VOWELS += "*"
 HAND_SIZE = 7
 
 SCRABBLE_LETTER_VALUES = {
@@ -168,7 +170,9 @@ def display_hand(hand):
 #
 # Make sure you understand how this function works and what it does!
 # You will need to modify this for Problem #4.
-#
+# We want to allow hands to contain wildcard letters, which will be denoted by an asterisk (*). Wildcards can only replace vowels. Each hand dealt should initially contain exactly one wildcard as one of its letters. The player does not receive any points for using the wildcard (unlike all the other letters), though it does count as a used or unused letter when scoring. During the game, a player wishing to use a wildcard should enter "*" (without quotes) instead of the intended letter. The word-validation code should not make any assumptions about what the intended vowel should be, but should verify that at least one valid word can be made with the wildcard as a vowel in the desired position.
+# Modify the deal_hand function to support always giving one wildcard in each hand. Notethat deal_hand currently ensures that one third of the letters are vowels and the rest areconsonants. Leave the consonant count intact, and replace one of the vowel slots with the wildcard. You will also need to modify one or more of the constants defined at the top of the file to account for wildcards. Then modify the is_valid_word function to support wildcards. Hint: Check to see whatpossible words can be formed by replacing the wildcard with other vowels. You may want to review the documentation
+# for string module’s find() function and make note of itsbehavior when a character is not found. The constant VOWELS defined for you at the top ofthe file may be helpful as well.
 def deal_hand(n):
     """
     Returns a random hand containing n lowercase letters.
@@ -184,7 +188,7 @@ def deal_hand(n):
     """
 
     hand = {}
-    num_vowels = int(math.ceil(n / 3))
+    num_vowels = int(math.ceil(n / 3)) - 1
 
     for i in range(num_vowels):
         x = random.choice(VOWELS)
@@ -194,6 +198,7 @@ def deal_hand(n):
         x = random.choice(CONSONANTS)
         hand[x] = hand.get(x, 0) + 1
 
+    hand["*"] = 1
     return hand
 
 
@@ -249,23 +254,54 @@ def is_valid_word(word, hand, word_list):
     returns: boolean
     """
 
+    # create another function to check for possible word
+    def check_possible_word(word, hand, word_list):
+        word = word.lower()
+        copy_hand = hand.copy()
+
+        if word not in word_list:
+            return False
+        else:
+            for letter in word:
+                if letter not in copy_hand:
+                    return False
+                else:
+                    copy_hand[letter] -= 1
+                    if copy_hand[letter] < 0:
+                        return False
+        return True
+
     # first check if word is in word_list. if false, return false
     # if true, continue
     # in a loop, check if each letter in word is in hand. if false, return false
     # when checking, need to make sure that hand has sufficient number of letters to make word. i will make a copy of hand and remove letters as i check them
     word = word.lower()
     copy_hand = hand.copy()
-    if word not in word_list:
-        return False
+    possible_words = []
+    # now split into 2 cases - one if word contains *, the the other if not containing *
+    if "*" in word:
+        # now check if word is valid by replacing * with each vowel and checking if the word is in word_list
+        # check every vowel except for *
+        index_of_asterisk = word.find("*")
+        for vowel in VOWELS and vowel != "*":
+            new_word = word[:index_of_asterisk] + vowel + word[index_of_asterisk + 1 :]
+            # now check if new_word is in word_list. if yes, then add to possible_words
+            if new_word in word_list:
+                possible_words.append(new_word)
+        # now check if possible_words is empty. if yes, then return false
+        if len(possible_words) == 0:
+            return False
+        else:
+            # now check if any one of the possible_words can be made from hand
+            # at first the below else statement was the previous version of is_valid_word, but i made into a function instead since i need to use twice
+            for possible_word in possible_words:
+                if check_possible_word(possible_word, copy_hand, word_list):
+                    return True
+            # if none of the possible_words can be made from hand, return false
+            return False
+
     else:
-        for letter in word:
-            if letter not in copy_hand:
-                return False
-            else:
-                copy_hand[letter] -= 1
-                if copy_hand[letter] < 0:
-                    return False
-    return True
+        check_possible_word(word, copy_hand, word_list)
 
 
 #
