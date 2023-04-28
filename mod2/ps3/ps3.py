@@ -283,11 +283,12 @@ def is_valid_word(word, hand, word_list):
         # now check if word is valid by replacing * with each vowel and checking if the word is in word_list
         # check every vowel except for *
         index_of_asterisk = word.find("*")
-        for vowel in VOWELS and vowel != "*":
-            new_word = word[:index_of_asterisk] + vowel + word[index_of_asterisk + 1 :]
-            # now check if new_word is in word_list. if yes, then add to possible_words
-            if new_word in word_list:
-                possible_words.append(new_word)
+        for vowel in VOWELS:
+            if vowel != "*":
+                new_word = word[:index_of_asterisk] + vowel + word[index_of_asterisk + 1 :]
+                # now check if new_word is in word_list. if yes, then add to possible_words
+                if new_word in word_list:
+                    possible_words.append(new_word)
         # now check if possible_words is empty. if yes, then return false
         if len(possible_words) == 0:
             return False
