@@ -301,7 +301,7 @@ def is_valid_word(word, hand, word_list):
             return False
 
     else:
-        check_possible_word(word, copy_hand, word_list)
+        return check_possible_word(word, hand, word_list)
 
 
 #
