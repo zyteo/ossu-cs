@@ -45,6 +45,7 @@ SCRABBLE_LETTER_VALUES = {
     "x": 8,
     "y": 4,
     "z": 10,
+    "*": 0,
 }
 
 # -----------------------------------
@@ -97,6 +98,7 @@ def get_frequency_dict(sequence):
 #
 # Problem #1: Scoring a word
 # As a reminder, here are the rules for scoring a word: ●The score for a word is the product of two components:oFirst component: the sum of the points for letters in the word. oSecond component: either [7 * word_length - 3 * ( n- word_length)] or 1,whichever value is greater, where: ▪word_length is the number of letters used in the word ▪n is the number of letters available in the current handYou should use the SCRABBLE_LETTER_VALUES dictionary defined at the top of ps3.py . Do not assume that there are always 7 letters in a hand! The parameter n is the total number of letters in the hand when the word was entered.
+# The player does not receive any points for using the wildcard (unlike all the other letters), though it does count as a used or unused letter when scoring.
 def get_word_score(word, n):
     """
     Returns the score for a word. Assumes the word is a
@@ -276,7 +278,6 @@ def is_valid_word(word, hand, word_list):
     # in a loop, check if each letter in word is in hand. if false, return false
     # when checking, need to make sure that hand has sufficient number of letters to make word. i will make a copy of hand and remove letters as i check them
     word = word.lower()
-    copy_hand = hand.copy()
     possible_words = []
     # now split into 2 cases - one if word contains *, the the other if not containing *
     if "*" in word:
@@ -285,7 +286,9 @@ def is_valid_word(word, hand, word_list):
         index_of_asterisk = word.find("*")
         for vowel in VOWELS:
             if vowel != "*":
-                new_word = word[:index_of_asterisk] + vowel + word[index_of_asterisk + 1 :]
+                new_word = (
+                    word[:index_of_asterisk] + vowel + word[index_of_asterisk + 1 :]
+                )
                 # now check if new_word is in word_list. if yes, then add to possible_words
                 if new_word in word_list:
                     possible_words.append(new_word)
@@ -293,13 +296,27 @@ def is_valid_word(word, hand, word_list):
         if len(possible_words) == 0:
             return False
         else:
+            print(possible_words)
             # now check if any one of the possible_words can be made from hand
-            # at first the below else statement was the previous version of is_valid_word, but i made into a function instead since i need to use twice
+            flag = False
             for possible_word in possible_words:
-                if check_possible_word(possible_word, copy_hand, word_list):
-                    return True
-            # if none of the possible_words can be made from hand, return false
-            return False
+                copy_hand = hand.copy()
+                if flag:
+                    break
+                else:
+                    # check if all the other letters in possible_word are in hand, minus the asterisk
+                    # loop through the letters in possible word, then if not = *, just minus 1 from hand copy. every loop need to create a new copy of hand to 'reset' the hand
+                    # if letter is *, then just minus * from hand copy
+                    for letter in word:
+                        copy_hand[letter] -= 1
+                    # now check if all the values in copy_hand are >= 0. if yes, then set flag to true
+                    for key in copy_hand:
+                        if copy_hand[key] < 0:
+                            flag = False
+                            break
+                        else:
+                            flag = True
+            return flag
 
     else:
         return check_possible_word(word, hand, word_list)
