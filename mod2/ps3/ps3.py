@@ -518,9 +518,17 @@ def play_game(word_list):
     word_list: list of lowercase strings
     """
 
-    print(
-        "play_game not implemented."
-    )  # TO DO... Remove this line when you implement this function
+    # ask for total number of hands
+    # total score = 0, substitute = 1, replay = 1
+    # while total hands != 0, run loop
+    # play game, show the current hand, store the hand
+    # if sub != 0, ask if user wants to substitute
+    # if yes, sub = 0, ask for letter, substitute_hand
+    # if no, continue
+    # at the end of the game, if replay != 0, ask if user wants to replay
+    # if yes, replay with SAME hand, replay = 0
+    # compare the scores, keep the higher one
+    # if no, add the total score and continue
 
 
 #
