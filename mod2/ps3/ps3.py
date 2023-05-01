@@ -456,16 +456,35 @@ def substitute_hand(hand, letter):
     letter: string
     returns: dictionary (string -> int)
     """
+    letter_type = ""
     # first check if letter is vowel or consonant
+    if letter in VOWELS:
+        letter_type = "vowel"
+    elif letter in CONSONANTS:
+        letter_type = "consonant"
     # get the count of the letter in hand
+    letter_count = hand[letter]
     # if vowel, make a copy of VOWELS
-    # for loop to remove the letters in hand from the copy
+    if letter_type == "vowel":
+        copy = VOWELS[:]
+        # for loop to remove the letters in hand from the copy
+        for key in hand:
+            if key in copy:
+                copy.remove(key)
     # if consonant, repeat above process for consonants
+    elif letter_type == "consonant":
+        copy = CONSONANTS[:]
+        for key in hand:
+            if key in copy:
+                copy.remove(key)
     # then get a random letter from the copy
+    new_letter = random.choice(copy)
     # delete the letter from hand
+    del hand[letter]
     # add the new letter to hand
+    hand[new_letter] = letter_count
     # return hand
-
+    return hand
 
 
 def play_game(word_list):
