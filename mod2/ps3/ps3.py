@@ -517,18 +517,63 @@ def play_game(word_list):
 
     word_list: list of lowercase strings
     """
-
     # ask for total number of hands
+    # if not integer, give error message
+    # if integer, continue
+    try:
+        total_hands = int(input("Enter total number of hands: "))
+    except ValueError:
+        print("Please enter a valid integer")
     # total score = 0, substitute = 1, replay = 1
+    total_score = 0
+    substitute = 1
+    replay = 1
     # while total hands != 0, run loop
-    # play game, show the current hand, store the hand
-    # if sub != 0, ask if user wants to substitute
-    # if yes, sub = 0, ask for letter, substitute_hand
-    # if no, continue
-    # at the end of the game, if replay != 0, ask if user wants to replay
-    # if yes, replay with SAME hand, replay = 0
-    # compare the scores, keep the higher one
-    # if no, add the total score and continue
+    while total_hands > 0:
+        # play game, show the current hand, store the hand
+        hand = deal_hand(HAND_SIZE)
+        print("Current hand:", end=" ")
+        # if sub != 0, ask if user wants to substitute
+        if substitute != 0:
+            sub = input("Would you like to substitute a letter? ")
+            # if yes, sub = 0, ask for letter, substitute_hand
+            if sub == "yes":
+                letter = input("Which letter would you like to replace: ")
+                # check that letter entered is valid. must be in hand and of length 1
+                if letter in hand and len(letter) == 1:
+                    hand = substitute_hand(hand, letter)
+                    substitute = 0
+                else:
+                    # if not valid, i will take it that user does not want to substitute, carry on
+                    print("That is not a valid letter. The game will continue anyway.")
+            # if no, continue
+            elif sub == "no":
+                continue
+            else:
+                # if sub is not yes or no, just continue
+                print("That is not a valid answer. The game will continue anyway.")
+                continue
+        # play hand, store the score
+        score = play_hand(hand, word_list)
+        # at the end of the game, if replay != 0, ask if user wants to replay
+        if replay != 0:
+            user_replay = input("Would you like to replay the hand? ")
+            # if yes, replay with SAME hand, replay = 0
+            if user_replay == "yes":
+                replay_score = play_hand(hand, word_list)
+                replay = 0
+                # compare the scores, keep the higher one
+                if replay_score > score:
+                    score = replay_score
+            # if no, continue
+            elif user_replay == "no":
+                continue
+            else:
+                print("That is not a valid answer. The game will continue anyway.")
+                continue
+        # add the total score and continue. minus 1 from total hands
+        total_score += score
+        total_hands -= 1
 
 
 #
@@ -538,5 +583,4 @@ def play_game(word_list):
 #
 if __name__ == "__main__":
     word_list = load_words()
-    # play_game(word_list)
-    play_hand(deal_hand(7), word_list)
+    play_game(word_list)
