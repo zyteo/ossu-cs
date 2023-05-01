@@ -391,9 +391,9 @@ def play_hand(hand, word_list):
         user_input = input("Enter word, or '!!' to indicate that you are finished: ")
         # If the input is two exclamation points:
         if user_input == "!!":
-            print("Total score:", total_score, "points")
+            print("Total score for this hand:", total_score)
             # End the game (break out of the loop)
-            break
+            return total_score
         # Otherwise (the input is not two exclamation points):
         else:
             # If the word is valid:
@@ -419,9 +419,9 @@ def play_hand(hand, word_list):
     # Game is over (user entered '!!' or ran out of letters),
     # so tell user the total score
     if check_hand_empty(hand):
-        print("Ran out of letters. Total score:", total_score, "points")
-    # Return the total score as result of functio
-    return total_score
+        print("Ran out of letters. Total score for this hand:", total_score, "points")
+        # Return the total score as result of functio
+        return total_score
 
 
 #
@@ -467,18 +467,14 @@ def substitute_hand(hand, letter):
     # if vowel, make a copy of VOWELS
     if letter_type == "vowel":
         copy = VOWELS[:]
-        # for loop to remove the letters in hand from the copy
-        for key in hand:
-            if key in copy:
-                copy.remove(key)
     # if consonant, repeat above process for consonants
     elif letter_type == "consonant":
         copy = CONSONANTS[:]
-        for key in hand:
-            if key in copy:
-                copy.remove(key)
     # then get a random letter from the copy
     new_letter = random.choice(copy)
+    # if new letter is the same as the old letter or if the new letter is already in hand, repeat the process
+    while new_letter == letter or new_letter in hand.keys():
+        new_letter = random.choice(copy)
     # delete the letter from hand
     del hand[letter]
     # add the new letter to hand
@@ -529,10 +525,12 @@ def play_game(word_list):
     substitute = 1
     replay = 1
     # while total hands != 0, run loop
-    while total_hands > 0:
+    while total_hands != 0:
         # play game, show the current hand, store the hand
         hand = deal_hand(HAND_SIZE)
+        # need to use display hand to print out the hand
         print("Current hand:", end=" ")
+        display_hand(hand)
         # if sub != 0, ask if user wants to substitute
         if substitute != 0:
             sub = input("Would you like to substitute a letter? ")
@@ -548,13 +546,16 @@ def play_game(word_list):
                     print("That is not a valid letter. The game will continue anyway.")
             # if no, continue
             elif sub == "no":
-                continue
+                pass
             else:
                 # if sub is not yes or no, just continue
                 print("That is not a valid answer. The game will continue anyway.")
-                continue
-        # play hand, store the score
-        score = play_hand(hand, word_list)
+                pass
+            # play hand, store the score
+            score = play_hand(hand, word_list)
+        else:
+            # if sub = 0, play hand, store the score
+            score = play_hand(hand, word_list)
         # at the end of the game, if replay != 0, ask if user wants to replay
         if replay != 0:
             user_replay = input("Would you like to replay the hand? ")
@@ -567,13 +568,21 @@ def play_game(word_list):
                     score = replay_score
             # if no, continue
             elif user_replay == "no":
-                continue
+                pass
             else:
                 print("That is not a valid answer. The game will continue anyway.")
-                continue
+                pass
+        else:
+            # if replay = 0, continue
+            pass
         # add the total score and continue. minus 1 from total hands
         total_score += score
         total_hands -= 1
+        print("----------")
+
+    # print out the total score
+    print("Total score over all hands:", total_score)
+    return total_score
 
 
 #
