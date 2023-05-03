@@ -106,7 +106,7 @@ class Message(object):
 
         Returns: a COPY of self.valid_words
         """
-        pass  # delete this line and replace with your code here
+        return self.valid_words[:]
 
     def build_shift_dict(self, shift):
         """
@@ -122,7 +122,32 @@ class Message(object):
         Returns: a dictionary mapping a letter (string) to
                  another letter (string).
         """
-        pass  # delete this line and replace with your code here
+        # create 2 lists, one for lowercase and one for uppercase
+        # the 2 lists will be in order of the alphabet
+        # create 2 new lists, one for lowercase and one for uppercase
+        # in a loop, create the dictionary. if index + shift > 26, then just take the modulus (which is the remainder)
+        # if less than 26, then just add the shift to the index
+        # once done, create the dictionary
+        upper = list(string.ascii_uppercase)
+        lower = list(string.ascii_lowercase)
+        upper_shifted = []
+        lower_shifted = []
+        letter_map = {}
+        for i in range(len(upper)):
+            if i + shift > 25:
+                upper_shifted.append(upper[(i + shift) % 26])
+            else:
+                upper_shifted.append(upper[i + shift])
+        for i in range(len(lower)):
+            if i + shift > 25:
+                lower_shifted.append(lower[(i + shift) % 26])
+            else:
+                lower_shifted.append(lower[i + shift])
+        for i in range(len(upper)):
+            letter_map[upper[i]] = upper_shifted[i]
+        for i in range(len(lower)):
+            letter_map[lower[i]] = lower_shifted[i]
+        return letter_map
 
     def apply_shift(self, shift):
         """
@@ -136,7 +161,17 @@ class Message(object):
         Returns: the message text (string) in which every character is shifted
              down the alphabet by the input shift
         """
-        pass  # delete this line and replace with your code here
+        # get the letter map with the function above
+        # create a new string based on the letter map
+        # if the string is not a letter, then just add the character to the new string
+        map_for_shift = self.build_shift_dict(shift)
+        new_string = ""
+        for char in self.message_text:
+            if char in map_for_shift:
+                new_string += map_for_shift[char]
+            else:
+                new_string += char
+        return new_string
 
 
 class PlaintextMessage(Message):
@@ -227,7 +262,13 @@ class CiphertextMessage(Message):
 
 
 if __name__ == "__main__":
-    #    #Example test case (PlaintextMessage)
+    # test message
+    message = Message("Abc, !")
+    print(message.get_message_text())
+    print(message.build_shift_dict(2))
+    print(message.apply_shift(2))
+
+    # Example test case (PlaintextMessage)
     #    plaintext = PlaintextMessage('hello', 2)
     #    print('Expected Output: jgnnq')
     #    print('Actual Output:', plaintext.get_message_text_encrypted())
@@ -241,4 +282,4 @@ if __name__ == "__main__":
 
     # TODO: best shift value and unencrypted story
 
-    pass  # delete this line and replace with your code here
+    # pass  # delete this line and replace with your code here
