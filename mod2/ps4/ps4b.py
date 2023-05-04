@@ -312,7 +312,38 @@ if __name__ == "__main__":
     print("Actual Output:", ciphertext.decrypt_message())
 
     # TODO: WRITE YOUR TEST CASES HERE
+    # Write two test cases for PlaintextMessage and two test cases for
+    # CiphertextMessage in comments under if name == ‘__main__’ . Each
+    # test case should display the input, expected output, and actual output. An
+    # example can be found in ps4b.py. Then, decode the file story.txt and write
+    # the best shift value used to decrypt the story, and unencrypted story in a
+    # comment underneath your test cases.
+    plaintext_test1 = PlaintextMessage("this is a test", 5)
+    print("Expected Output: ymnx nx f yjxy")
+    print("Actual Output:", plaintext_test1.get_message_text_encrypted())
 
+    plaintext_test2 = PlaintextMessage("WHAT did the cat SAY?!?", 10)
+    print("Expected Output: GRKD nsn dro mkd CKI?!?")
+    print("Actual Output:", plaintext_test2.get_message_text_encrypted())
+
+    ciphertext_test1 = CiphertextMessage("ymnx nx f yjxy")
+    print("Expected Output:", (21, "this is a test"))
+    print("Actual Output:", ciphertext_test1.decrypt_message())
+
+    ciphertext_test2 = CiphertextMessage("GRKD nsn dro mkd CKI?!?")
+    print("Expected Output:", (16, "WHAT did the cat SAY?!?"))
+    print("Actual Output:", ciphertext_test2.decrypt_message())
+
+    # Hint: The skeleton code contains a helper function get_story_string that returns
+    # the encrypted version of the story as a string. Create a CiphertextMessage object
+    # using the story string and use decrypt_message to return the appropriate shift
+    # value and unencrypted story.
     # TODO: best shift value and unencrypted story
-
-    # pass  # delete this line and replace with your code here
+    # read the file story.txt
+    # find the best shift value
+    # decrypt the story
+    # print the best shift value and the unencrypted story
+    story = get_story_string()
+    ciphertext_story = CiphertextMessage(story)
+    print("Best shift value:", ciphertext_story.decrypt_message()[0])
+    print("Unencrypted story:", ciphertext_story.decrypt_message()[1])
