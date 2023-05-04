@@ -244,6 +244,10 @@ class PlaintextMessage(Message):
         self.message_text_encrypted = self.apply_shift(shift)
 
 
+# The methods you should fill in are:
+# ●__init__(self, text) ○Hint: use the parent class constructor to make your code more concise. Take a look at Style Guide #7 if you are confused.
+# ●decrypt_message(self) ○Hint: you may find the helper function is_word(wordlist, word) and the string method split useful ( https://docs.python.org/3/library/stdtypes.html#str.split
+# , or alternatively help(str.split) in your console) ○Note: is_word will ignore punctuation and other special characters when considering whether a word is valid.
 class CiphertextMessage(Message):
     def __init__(self, text):
         """
@@ -255,7 +259,8 @@ class CiphertextMessage(Message):
             self.message_text (string, determined by input text)
             self.valid_words (list, determined using helper function load_words)
         """
-        pass  # delete this line and replace with your code here
+        self.message_text = text
+        self.valid_words = load_words(WORDLIST_FILENAME)
 
     def decrypt_message(self):
         """
@@ -273,7 +278,20 @@ class CiphertextMessage(Message):
         Returns: a tuple of the best shift value used to decrypt the message
         and the decrypted message text using that shift value
         """
-        pass  # delete this line and replace with your code here
+        # first create a dictionary of all possible shifts and the number of valid words
+        # then search the highest number of valid words and create the tuple to return
+        shift_dict = {}
+        for shift in range(26):
+            new_message = self.apply_shift(shift)
+            words = new_message.split(" ")
+            valid_words = 0
+            for word in words:
+                if is_word(self.valid_words, word):
+                    valid_words += 1
+            shift_dict[shift] = valid_words
+        # search the highest number of valid words and create the tuple to return
+        best_shift = max(shift_dict, key=shift_dict.get)
+        return best_shift, self.apply_shift(best_shift)
 
 
 if __name__ == "__main__":
@@ -284,14 +302,14 @@ if __name__ == "__main__":
     print(message.apply_shift(2))
 
     # Example test case (PlaintextMessage)
-    plaintext = PlaintextMessage('hello', 2)
-    print('Expected Output: jgnnq')
-    print('Actual Output:', plaintext.get_message_text_encrypted())
+    plaintext = PlaintextMessage("hello", 2)
+    print("Expected Output: jgnnq")
+    print("Actual Output:", plaintext.get_message_text_encrypted())
     #
-    #    #Example test case (CiphertextMessage)
-    #    ciphertext = CiphertextMessage('jgnnq')
-    #    print('Expected Output:', (24, 'hello'))
-    #    print('Actual Output:', ciphertext.decrypt_message())
+    # Example test case (CiphertextMessage)
+    ciphertext = CiphertextMessage("jgnnq")
+    print("Expected Output:", (24, "hello"))
+    print("Actual Output:", ciphertext.decrypt_message())
 
     # TODO: WRITE YOUR TEST CASES HERE
 
