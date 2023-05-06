@@ -3,7 +3,7 @@
 # Collaborators:
 # Time Spent: x:xx
 # Started 5 May 2023 by zyteo
-# Completed x May 2023
+# Completed 6 May 2023
 
 import string
 from ps4a import get_permutations
@@ -254,3 +254,7 @@ if __name__ == "__main__":
     print("Actual encryption:", message2.apply_transpose(encoded_dict2))
     encoded_message2 = EncryptedSubMessage(message2.apply_transpose(encoded_dict2))
     print("Decrypted message:", encoded_message2.decrypt_message())
+
+# maybe in the future, can set a function such that for equal number of max valid words, print out all the possible decrypted messages
+# then let the user choose which message make the most sense
+# because sometimes, the decrypted message may not be the correct one
