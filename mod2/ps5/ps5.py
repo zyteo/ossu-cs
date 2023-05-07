@@ -2,6 +2,8 @@
 # Name:
 # Collaborators:
 # Time:
+# Started 7 May 2023 by zyteo
+# Completed x May 2023
 
 import feedparser
 import string
@@ -55,7 +57,33 @@ def process(url):
 # Problem 1
 
 # TODO: NewsStory
-
+# ●globally unique identifier (GUID) - a string
+# ●title - a string●description - a string
+# ●link to more content - a string
+# ●pubdate - a datetime
+# We want to store this information in an object that we can then pass around in the rest of our program. Your task, in this problem, is to write a class, NewsStory , starting with a constructor that takes ( guid, title, description, link, pubdate ) as argumentsand stores them appropriately. NewsStory also needs to contain the following methods:
+# ●get_guid(self)
+# ●get_title(self)
+# ●get_description(self)
+# ●get_link(self)
+# ●get_pubdate(self)
+class NewsStory(object):
+    def __init__(self, guid, title, description, link, pubdate):
+        self.guid = guid
+        self.title = title
+        self.description = description
+        self.link = link
+        self.pubdate = pubdate
+    def get_guid(self):
+        return self.guid
+    def get_title(self):
+        return self.title
+    def get_description(self):
+        return self.description
+    def get_link(self):
+        return self.link
+    def get_pubdate(self):
+        return self.pubdate
 
 #======================
 # Triggers
