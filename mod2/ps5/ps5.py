@@ -102,6 +102,43 @@ class Trigger(object):
 
 # Problem 2
 # TODO: PhraseTrigger
+# Implement a phrase trigger abstract class, PhraseTrigger . 
+# It should take in a string phraseas an argument to the class's constructor. This trigger should not be case-sensitive (it should treat "Intel" and "intel" as being equal).
+# PhraseTrigger should be a subclass of Trigger . It has one new method,is_phrase_in , which takes in one string argument text. 
+# It returns True if the whole phrasephrase is present in text, 
+# False otherwise, as described in the above examples.
+#  Thismethod should not be case-sensitive. 
+# Implement this method. Because this is an abstract class, we will not be directly instantiating any PhraseTriggers .
+# PhraseTrigger should inherit its evaluate method from Trigger . 
+# We do this because nowwe can create subclasses of PhraseTrigger that use its is_phrase_in function.✦✦✦✦You are now ready to implement PhraseTrigger 's two subclasses: TitleTrigger andDescriptionTrigger .
+class PhraseTrigger(Trigger):
+    def __init__(self, phrase):
+        self.phrase = phrase
+    def is_phrase_in(self, text):
+        # need to compare phrase to text
+        # first convert both to lowercase
+        # then split text into words
+        # remove punctuation from text with replace
+        # then join text back into a string
+        # compare phrase to text
+        # if phrase in text, return True
+        # else return False
+        phrase = self.phrase.lower()
+        text = text.lower()
+        text = text.split()
+        for word in text:
+            word = word.replace(string.punctuation, "")
+        text = " ".join(text)
+        if phrase in text:
+            return True
+        else:
+            return False
+
+# test phrase trigger
+phrase = "Intel"
+text = "Intel is a company"
+phrase_trigger = PhraseTrigger(phrase)
+print(phrase_trigger.is_phrase_in(text))
 
 # Problem 3
 # TODO: TitleTrigger
