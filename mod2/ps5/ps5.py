@@ -160,12 +160,12 @@ class PhraseTrigger(Trigger):
 phrase = "Intel"
 text = "Intel is a company"
 phrase_trigger = PhraseTrigger(phrase)
-print(phrase_trigger.is_phrase_in(text))
+# print(phrase_trigger.is_phrase_in(text))
 
 phrase2 = "purple cow"
 text2 = "Purple!!! Cow!!!"
 phrase_trigger2 = PhraseTrigger(phrase2)
-print(phrase_trigger2.is_phrase_in(text2))
+# print(phrase_trigger2.is_phrase_in(text2))
 
 # Problem 3
 # TODO: TitleTrigger

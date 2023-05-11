@@ -8,3 +8,10 @@ https://github.com/ossu/computer-science
 | --: | ------------------------------------------------------------- | ----------- |
 |   1 | Introduction to Programming                                   | Skipped     |
 |   2 | Introduction to Computer Science and Programming using Python | In progress |
+
+## Core CS
+
+|  No | Module                     | Completion |
+| --: | -------------------------- | ---------- |
+|   1 | How to Code - Simple Data  |            |
+|   2 | How to Code - Complex Data |            |
