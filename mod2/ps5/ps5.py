@@ -195,8 +195,11 @@ phrase_trigger2 = PhraseTrigger(phrase2)
 # all these should return True
 text3 = "The purple cow is soft and cuddly."
 text4 = "The farmer owns a really PURPLE cow."
-text5 = "purple@#$%cow" #need to account for this
-text6 = "Did you see a purple cow?"
+text5 = "purple@#$%cow"  # need to account for this
+# to account for this, for i in phrase
+# check if there are alphabets in between punctuation
+# if there are, then replace the punctuation with a space and then carry on
+text6 = "Did you see a purple     cow?"
 print("text3", phrase_trigger2.is_phrase_in(text3))
 print("text4", phrase_trigger2.is_phrase_in(text4))
 print("text5", phrase_trigger2.is_phrase_in(text5))
