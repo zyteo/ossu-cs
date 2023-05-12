@@ -155,6 +155,13 @@ class PhraseTrigger(Trigger):
         else:
             return False
 
+# Given some text, the trigger should fire only when each word in the phrase is present in its entirety and appears consecutively in the text, separated only by spaces or punctuation. The trigger should not be case sensitive. For example, a phrase trigger with the phrase "purple cow" should fire on the following text snippets: 
+# ●'PURPLE COW'
+# ●'The purple cow is soft and cuddly.'
+# ●'The farmer owns a really PURPLE cow.'
+# ●'Purple!!! Cow!!!'
+# ●'purple@#$%cow'
+# ●'Did you see a purple cow?'
 
 # test phrase trigger
 phrase = "Intel"
@@ -166,6 +173,17 @@ phrase2 = "purple cow"
 text2 = "Purple!!! Cow!!!"
 phrase_trigger2 = PhraseTrigger(phrase2)
 # print(phrase_trigger2.is_phrase_in(text2))
+
+text3= "The purple cow is soft and cuddly."
+text4 = "The farmer owns a really PURPLE cow."
+text5 = "purple@#$%cow"
+text6 = "Did you see a purple cow?"
+print("text3", phrase_trigger2.is_phrase_in(text3))
+print("text4", phrase_trigger2.is_phrase_in(text4))
+print("text5", phrase_trigger2.is_phrase_in(text5))
+print("text6", phrase_trigger2.is_phrase_in(text6))
+
+
 
 # Problem 3
 # TODO: TitleTrigger
