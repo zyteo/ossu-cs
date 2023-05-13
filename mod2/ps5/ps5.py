@@ -200,7 +200,7 @@ class PhraseTrigger(Trigger):
                         # if i = 0, replace with "" instead of " " as "$$test#pop" need to be "test pop"
                         if i == 0:
                             num_punctuation = alphabet_sandwich_count[i]
-                            word = "" + word[num_punctuation :]
+                            word = "" + word[num_punctuation:]
                         else:
                             # remove punctuation
                             num_punctuation = alphabet_sandwich_count[i]
@@ -285,9 +285,25 @@ text11 = "purplecowpurplecowpurplecow"
 
 # Problem 3
 # TODO: TitleTrigger
+# Implement a phrase trigger subclass, TitleTrigger that fires when a news item's titlecontains a given phrase. For example, an instance of this type of trigger could be used to generate an alert whenever the phrase "Intel processors" occurred in the title of anews item.
+# As it was in PhaseTrigger , the phrase should be an argument to the class's constructor,and the trigger should not be case-sensitive.
+# Think carefully about what methods should be defined in TitleTrigger and whatmethods should be inherited from the superclass.
+# Once you've implemented TitleTrigger , the TitleTrigger unit tests in our test suite should pass. Remember thatall subclasses that inherit from the Trigger interface should include a working evaluatemethod. If you find that you're not passing the unit tests, keep in mind that FAIL means your code runs but produce the wrong answer, whereas ERROR means that your code crashes due to some error.
+# need to define a evaluate method and a __init__ method
+class TitleTrigger(PhraseTrigger):
+    def __init__(self, phrase):
+        PhraseTrigger.__init__(self, phrase)
+    def evaluate(self, story):
+        return self.is_phrase_in(story.get_title())
 
 # Problem 4
 # TODO: DescriptionTrigger
+# Implement a phrase trigger subclass, DescriptionTrigger , that fires when a news item'sdescription contains a given phrase. As it was in PhaseTrigger , the phrase should bean argument to the class's constructor, and the trigger should not be case-sensitive. Once you've implemented DescriptionTrigger , the DescriptionTrigger unit tests inour test suite should pass.
+class DescriptionTrigger(PhraseTrigger):
+    def __init__(self, phrase):
+        PhraseTrigger.__init__(self, phrase)
+    def evaluate(self, story):
+        return self.is_phrase_in(story.get_description())
 
 # TIME TRIGGERS
 
@@ -296,6 +312,8 @@ text11 = "purplecowpurplecowpurplecow"
 # Constructor:
 #        Input: Time has to be in EST and in the format of "%d %b %Y %H:%M:%S".
 #        Convert time from string to a datetime before saving it as an attribute.
+# Implement a time trigger abstract class, TimeTrigger , that is a subclass of Trigger . The class's constructor should take in time in EST as a string in the format of "3 Oct 2016 17:00:10 ". Make sure to convert time from string to a datetime before saving it as an attribute. Some of datetime ’s methods, strptime and replace , along with an explanation of the string format for time
+# , might come in handy. You can also look at the provided code in process to check. You do not have to implement any other methods.Because this is an abstract class, we will not be directly instantiating any TimeTrigger .
 
 # Problem 6
 # TODO: BeforeTrigger and AfterTrigger
