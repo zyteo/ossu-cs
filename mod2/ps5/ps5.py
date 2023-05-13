@@ -283,6 +283,7 @@ text11 = "purplecowpurplecowpurplecow"
 # print("text10", phrase_trigger2.is_phrase_in(text10))
 # print("text11", phrase_trigger2.is_phrase_in(text11))
 
+
 # Problem 3
 # TODO: TitleTrigger
 # Implement a phrase trigger subclass, TitleTrigger that fires when a news item's titlecontains a given phrase. For example, an instance of this type of trigger could be used to generate an alert whenever the phrase "Intel processors" occurred in the title of anews item.
@@ -293,8 +294,10 @@ text11 = "purplecowpurplecowpurplecow"
 class TitleTrigger(PhraseTrigger):
     def __init__(self, phrase):
         PhraseTrigger.__init__(self, phrase)
+
     def evaluate(self, story):
         return self.is_phrase_in(story.get_title())
+
 
 # Problem 4
 # TODO: DescriptionTrigger
@@ -302,10 +305,13 @@ class TitleTrigger(PhraseTrigger):
 class DescriptionTrigger(PhraseTrigger):
     def __init__(self, phrase):
         PhraseTrigger.__init__(self, phrase)
+
     def evaluate(self, story):
         return self.is_phrase_in(story.get_description())
 
+
 # TIME TRIGGERS
+
 
 # Problem 5
 # TODO: TimeTrigger
@@ -314,15 +320,33 @@ class DescriptionTrigger(PhraseTrigger):
 #        Convert time from string to a datetime before saving it as an attribute.
 # Implement a time trigger abstract class, TimeTrigger , that is a subclass of Trigger . The class's constructor should take in time in EST as a string in the format of "3 Oct 2016 17:00:10 ". Make sure to convert time from string to a datetime before saving it as an attribute. Some of datetime ’s methods, strptime and replace , along with an explanation of the string format for time
 # , might come in handy. You can also look at the provided code in process to check. You do not have to implement any other methods.Because this is an abstract class, we will not be directly instantiating any TimeTrigger .
+class TimeTrigger(Trigger):
+    def __init__(self, time):
+        self.time = datetime.strptime(time, "%d %b %Y %H:%M:%S")
+
 
 # Problem 6
 # TODO: BeforeTrigger and AfterTrigger
+# Implement BeforeTrigger and AfterTrigger , two subclasses of TimeTrigger .BeforeTrigger fires when a story is published strictly before the trigger’s time, andAfterTrigger fires when a story is published strictly after the trigger’s time. Theirevaluate should not take more than a couple of lines of code.
+# Once you've implemented BeforeTrigger and AfterTrigger , theBeforeAndAfterTrigger unit tests in our test suite should pass.
+
+
+class BeforeTrigger(TimeTrigger):
+    def evaluate(self, story):
+        return story.get_pubdate() < self.time
+
+
+class AfterTrigger(TimeTrigger):
+    def evaluate(self, story):
+        return story.get_pubdate() > self.time
 
 
 # COMPOSITE TRIGGERS
 
 # Problem 7
 # TODO: NotTrigger
+# This trigger should produce its output by inverting the output of another trigger. The NOT trigger should take this other trigger as an argument to its constructor (why its constructor? Because we can't change what parameters evaluate takes in...that'd break our polymorphism). So, given a trigger T and a news item x , the output of the NOT trigger'sevaluate method should be equivalent to not T.evaluate(x) .
+# When this is done, the NotTrigger unit tests should pass.
 
 # Problem 8
 # TODO: AndTrigger
