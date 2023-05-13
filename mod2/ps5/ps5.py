@@ -144,11 +144,76 @@ class PhraseTrigger(Trigger):
         # get list of punctuation
         punctuation = string.punctuation
         for word in text:
-            # remove punctuation
-            for i in punctuation:
-                if i in word:
-                    word = word.replace(i, "")
-            new_text.append(word)
+            # check if there are alphabets between punctuation
+            # if there are, remove punctuation and replace with space
+            # else, remove punctuation
+            # bee&$pop##@pie
+            alphabet_sandwich_count = [0]
+            current_type = None
+            first_type = None
+            changes = 0
+            for index in range(len(word)):
+                # for the very first index, set current type and first type
+                if index == 0:
+                    if word[index] in punctuation:
+                        current_type = "punctuation"
+                        first_type = "punctuation"
+                        alphabet_sandwich_count[changes] += 1
+                    else:
+                        current_type = "alphabet"
+                        first_type = "alphabet"
+                        alphabet_sandwich_count[changes] += 1
+                else:
+                    if word[index] in punctuation:
+                        if current_type == "punctuation":
+                            alphabet_sandwich_count[changes] += 1
+                        else:
+                            changes += 1
+                            current_type = "punctuation"
+                            alphabet_sandwich_count.append(1)
+                    else:
+                        if current_type == "alphabet":
+                            alphabet_sandwich_count[changes] += 1
+                        else:
+                            changes += 1
+                            current_type = "alphabet"
+                            alphabet_sandwich_count.append(1)
+            # if there are more than 1 changes, then there are alphabets between punctuation
+            if changes > 1:
+                # now remove punctuation. check what first type is
+                if first_type == "alphabet":
+                    # make use of alphabet_sandwich_count to remove punctuation and replace with space
+                    for i in range(len(alphabet_sandwich_count)):
+                        if i % 2 == 0:
+                            # even index means alphabet
+                            # do nothing
+                            pass
+                        else:
+                            # get the number of punctuation to remove
+                            num_punctuation = alphabet_sandwich_count[i]
+                            # get the index of the punctuation by summing up the previous numbers
+                            index = sum(alphabet_sandwich_count[:i])
+                            # remove the punctuation
+                            word = word[:index] + " " + word[index + num_punctuation :]
+                else:
+                    if i % 2 == 0:
+                        # remove punctuation
+                        num_punctuation = alphabet_sandwich_count[i]
+                        index = sum(alphabet_sandwich_count[:i])
+                        word = word[:index] + " " + word[index + num_punctuation :]
+                    else:
+                        # do nothing
+                        pass
+                word = word.split()
+                for i in word:
+                    new_text.append(i)
+            else:
+                # remove punctuation
+                for i in punctuation:
+                    if i in word:
+                        word = word.replace(i, "")
+                new_text.append(word)
+
         text = " ".join(new_text)
         if phrase in text:
             # split phrase into words, then check if each word is in text.
@@ -196,9 +261,6 @@ phrase_trigger2 = PhraseTrigger(phrase2)
 text3 = "The purple cow is soft and cuddly."
 text4 = "The farmer owns a really PURPLE cow."
 text5 = "purple@#$%cow"  # need to account for this
-# to account for this, for i in phrase
-# check if there are alphabets in between punctuation
-# if there are, then replace the punctuation with a space and then carry on
 text6 = "Did you see a purple     cow?"
 print("text3", phrase_trigger2.is_phrase_in(text3))
 print("text4", phrase_trigger2.is_phrase_in(text4))
