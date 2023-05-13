@@ -197,10 +197,15 @@ class PhraseTrigger(Trigger):
                             word = word[:index] + " " + word[index + num_punctuation :]
                 else:
                     if i % 2 == 0:
-                        # remove punctuation
-                        num_punctuation = alphabet_sandwich_count[i]
-                        index = sum(alphabet_sandwich_count[:i])
-                        word = word[:index] + " " + word[index + num_punctuation :]
+                        # if i = 0, replace with "" instead of " " as "$$test#pop" need to be "test pop"
+                        if i == 0:
+                            num_punctuation = alphabet_sandwich_count[i]
+                            word = "" + word[num_punctuation :]
+                        else:
+                            # remove punctuation
+                            num_punctuation = alphabet_sandwich_count[i]
+                            index = sum(alphabet_sandwich_count[:i])
+                            word = word[:index] + " " + word[index + num_punctuation :]
                     else:
                         # do nothing
                         pass
@@ -262,21 +267,21 @@ text3 = "The purple cow is soft and cuddly."
 text4 = "The farmer owns a really PURPLE cow."
 text5 = "purple@#$%cow"  # need to account for this
 text6 = "Did you see a purple     cow?"
-print("text3", phrase_trigger2.is_phrase_in(text3))
-print("text4", phrase_trigger2.is_phrase_in(text4))
-print("text5", phrase_trigger2.is_phrase_in(text5))
-print("text6", phrase_trigger2.is_phrase_in(text6))
+# print("text3", phrase_trigger2.is_phrase_in(text3))
+# print("text4", phrase_trigger2.is_phrase_in(text4))
+# print("text5", phrase_trigger2.is_phrase_in(text5))
+# print("text6", phrase_trigger2.is_phrase_in(text6))
 # all these should return False
 text7 = "Purple cows are cool!"
 text8 = "The purple blob over there is a cow."
 text9 = "How now brown cow."
 text10 = "Cow!!! Purple!!!"
 text11 = "purplecowpurplecowpurplecow"
-print("text7", phrase_trigger2.is_phrase_in(text7))
-print("text8", phrase_trigger2.is_phrase_in(text8))
-print("text9", phrase_trigger2.is_phrase_in(text9))
-print("text10", phrase_trigger2.is_phrase_in(text10))
-print("text11", phrase_trigger2.is_phrase_in(text11))
+# print("text7", phrase_trigger2.is_phrase_in(text7))
+# print("text8", phrase_trigger2.is_phrase_in(text8))
+# print("text9", phrase_trigger2.is_phrase_in(text9))
+# print("text10", phrase_trigger2.is_phrase_in(text10))
+# print("text11", phrase_trigger2.is_phrase_in(text11))
 
 # Problem 3
 # TODO: TitleTrigger
