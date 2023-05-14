@@ -343,16 +343,41 @@ class AfterTrigger(TimeTrigger):
 
 # COMPOSITE TRIGGERS
 
+
 # Problem 7
 # TODO: NotTrigger
 # This trigger should produce its output by inverting the output of another trigger. The NOT trigger should take this other trigger as an argument to its constructor (why its constructor? Because we can't change what parameters evaluate takes in...that'd break our polymorphism). So, given a trigger T and a news item x , the output of the NOT trigger'sevaluate method should be equivalent to not T.evaluate(x) .
 # When this is done, the NotTrigger unit tests should pass.
+class NotTrigger(Trigger):
+    def __init__(self, trigger):
+        self.trigger = trigger
+
+    def evaluate(self, story):
+        return not self.trigger.evaluate(story)
+
 
 # Problem 8
 # TODO: AndTrigger
+# Implement an AND trigger ( AndTrigger ).This trigger should take two triggers as arguments to its constructor, and should fire on a news story only if both of the inputted triggers would fire on that item. When this is done, the AndTrigger unit tests should pass.
+class AndTrigger(Trigger):
+    def __init__(self, trigger1, trigger2):
+        self.trigger1 = trigger1
+        self.trigger2 = trigger2
+
+    def evaluate(self, story):
+        return self.trigger1.evaluate(story) and self.trigger2.evaluate(story)
+
 
 # Problem 9
 # TODO: OrTrigger
+# Implement an OR trigger ( OrTrigger ).This trigger should take two triggers as arguments to its constructor, and should fire if either one (or both) of its inputted triggers would fire on that item. When this is done, the OrTrigger unit tests should pass.
+class OrTrigger(Trigger):
+    def __init__(self, trigger1, trigger2):
+        self.trigger1 = trigger1
+        self.trigger2 = trigger2
+
+    def evaluate(self, story):
+        return self.trigger1.evaluate(story) or self.trigger2.evaluate(story)
 
 
 # ======================
