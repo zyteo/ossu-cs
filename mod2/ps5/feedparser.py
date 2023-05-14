@@ -396,6 +396,7 @@ class FeedParserDict(dict):
         # __getattribute__() is called first; this will be called
         # only if an attribute was not already found
         try:
+            print("key", key)
             return self.__getitem__(key)
         except KeyError:
             raise AttributeError("object has no attribute '%s'" % key)
