@@ -395,7 +395,15 @@ def filter_stories(stories, triggerlist):
     # TODO: Problem 10
     # This is a placeholder
     # (we're just returning all the stories, with no filtering)
-    return stories
+    # first create a list
+    # for i in stories, if any of the triggers in triggerlist evaluate to true, add to list
+    # print(stories, "end")
+    stories_triggered = []
+    for story in stories:
+        for trigger in triggerlist:
+            if trigger.evaluate(story):
+                stories_triggered.append(story)
+    return stories_triggered
 
 
 # ======================
@@ -432,11 +440,11 @@ def main_thread(master):
     # A sample trigger list - you might need to change the phrases to correspond
     # to what is currently in the news
     try:
-        t1 = TitleTrigger("election")
-        t2 = DescriptionTrigger("Trump")
-        t3 = DescriptionTrigger("Clinton")
+        t1 = TitleTrigger("weather")
+        t2 = DescriptionTrigger("weather")
+        t3 = DescriptionTrigger("hot")
         t4 = AndTrigger(t2, t3)
-        triggerlist = [t1, t4]
+        triggerlist = [t1]
 
         # Problem 11
         # TODO: After implementing read_trigger_config, uncomment this line
