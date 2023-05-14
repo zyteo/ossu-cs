@@ -4,6 +4,8 @@ https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programm
 
 ## Introduction to Computer Science and Programming in Python
 
+:tada: COMPLETED :confetti_ball:
+
 |                                                       Lecture Video | Completion         |
 | ------------------------------------------------------------------: | ------------------ |
 |                                            1 - What is computation? | :white_check_mark: |
@@ -67,4 +69,4 @@ https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programm
 |          2 | :white_check_mark: |
 |          3 | :white_check_mark: |
 |          4 | :white_check_mark: |
-|          5 |                    |
+|          5 | :white_check_mark: |
