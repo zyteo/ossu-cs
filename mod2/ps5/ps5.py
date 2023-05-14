@@ -397,7 +397,6 @@ def filter_stories(stories, triggerlist):
     # (we're just returning all the stories, with no filtering)
     # first create a list
     # for i in stories, if any of the triggers in triggerlist evaluate to true, add to list
-    # print(stories, "end")
     stories_triggered = []
     for story in stories:
         for trigger in triggerlist:
@@ -431,6 +430,33 @@ def read_trigger_config(filename):
     # to build triggers
 
     print(lines)  # for now, print it so you see what it contains!
+    # first create a dictionary of triggers and a empty list
+    # for each item in line, split by comma
+    # if doesn't start with add, just add to dictionary with respective trigger
+    # once come across ADD, add the related triggers to the list
+    trigger_store = {}
+    trigger_list = []
+    for line in lines:
+        line = line.split(",")
+        print(line)
+        if line[1] == "TITLE":
+            trigger_store[line[0]] = TitleTrigger(line[2])
+        elif line[1] == "DESCRIPTION":
+            trigger_store[line[0]] = DescriptionTrigger(line[2])
+        elif line[1] == "AFTER":
+            trigger_store[line[0]] = AfterTrigger(line[2])
+        elif line[1] == "BEFORE":
+            trigger_store[line[0]] = BeforeTrigger(line[2])
+        elif line[1] == "NOT":
+            trigger_store[line[0]] = NotTrigger(line[2])
+        elif line[1] == "AND":
+            trigger_store[line[0]] = AndTrigger(line[2], line[3])
+        elif line[1] == "OR":
+            trigger_store[line[0]] = OrTrigger(line[2], line[3])
+        elif line[0] == "ADD":
+            trigger_list.append(trigger_store[line[1]])
+            trigger_list.append(trigger_store[line[2]])
+    return trigger_list
 
 
 SLEEPTIME = 120  # seconds -- how often we poll
@@ -448,7 +474,7 @@ def main_thread(master):
 
         # Problem 11
         # TODO: After implementing read_trigger_config, uncomment this line
-        # triggerlist = read_trigger_config('triggers.txt')
+        triggerlist = read_trigger_config("triggers.txt")
 
         # HELPER CODE - you don't need to understand this!
         # Draws the popup window that displays the filtered stories

@@ -6,7 +6,7 @@
 t1,TITLE,election
 
 // description trigger named t2
-t2,DESCRIPTION,Trump
+t2,TITLE,may
 
 // description trigger named t3
 t3,DESCRIPTION,Clinton
@@ -21,4 +21,4 @@ t5,AND,t2,t3
 t6,AND,t1,t4
 
 // the trigger list contains t1 and t4
-ADD,t5,t6
+ADD,t1,t2
