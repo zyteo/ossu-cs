@@ -14,17 +14,17 @@ https://www.edx.org/course/how-to-code-simple-data
 |         Course Team | :white_check_mark: |
 |   Pre-Course Survey | :white_check_mark: |
 
-| 1a: Beginning Student Language | Completion |
-| -----------------------------: | ---------- |
-|                    Expressions |            |
-|                     Evaluation |            |
-|             Strings and Images |            |
-|           Constant Definitions |            |
-|           Function Definitions |            |
-|    Booleans and if Expressions |            |
-|              Using the Stepper |            |
-|         Discovering Primitives |            |
-|              Practice Problems |            |
+| 1a: Beginning Student Language | Completion         |
+| -----------------------------: | ------------------ |
+|                    Expressions | :white_check_mark: |
+|                     Evaluation |                    |
+|             Strings and Images |                    |
+|           Constant Definitions |                    |
+|           Function Definitions |                    |
+|    Booleans and if Expressions |                    |
+|              Using the Stepper |                    |
+|         Discovering Primitives |                    |
+|              Practice Problems |                    |
 
 | 1b: How to Design Functions | Completion |
 | --------------------------: | ---------- |
