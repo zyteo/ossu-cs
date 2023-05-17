@@ -17,8 +17,8 @@ https://www.edx.org/course/how-to-code-simple-data
 | 1a: Beginning Student Language | Completion         |
 | -----------------------------: | ------------------ |
 |                    Expressions | :white_check_mark: |
-|                     Evaluation |                    |
-|             Strings and Images |                    |
+|                     Evaluation | :white_check_mark: |
+|             Strings and Images | :white_check_mark: |
 |           Constant Definitions |                    |
 |           Function Definitions |                    |
 |    Booleans and if Expressions |                    |
