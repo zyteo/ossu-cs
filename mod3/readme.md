@@ -19,8 +19,8 @@ https://www.edx.org/course/how-to-code-simple-data
 |                    Expressions | :white_check_mark: |
 |                     Evaluation | :white_check_mark: |
 |             Strings and Images | :white_check_mark: |
-|           Constant Definitions |                    |
-|           Function Definitions |                    |
+|           Constant Definitions | :white_check_mark: |
+|           Function Definitions | :white_check_mark: |
 |    Booleans and if Expressions |                    |
 |              Using the Stepper |                    |
 |         Discovering Primitives |                    |
