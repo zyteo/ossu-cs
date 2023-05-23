@@ -21,7 +21,7 @@ https://www.edx.org/course/how-to-code-simple-data
 |             Strings and Images | :white_check_mark: |
 |           Constant Definitions | :white_check_mark: |
 |           Function Definitions | :white_check_mark: |
-|    Booleans and if Expressions |                    |
+|    Booleans and if Expressions | :white_check_mark: |
 |              Using the Stepper |                    |
 |         Discovering Primitives |                    |
 |              Practice Problems |                    |
