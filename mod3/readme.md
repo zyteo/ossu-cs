@@ -23,7 +23,7 @@ https://www.edx.org/course/how-to-code-simple-data
 |           Function Definitions | :white_check_mark: |
 |    Booleans and if Expressions | :white_check_mark: |
 |              Using the Stepper | :white_check_mark: |
-|         Discovering Primitives |                    |
+|         Discovering Primitives | :white_check_mark: |
 |              Practice Problems |                    |
 
 | 1b: How to Design Functions | Completion |
