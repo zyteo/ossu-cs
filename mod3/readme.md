@@ -26,8 +26,61 @@ https://www.edx.org/course/how-to-code-simple-data
 |         Discovering Primitives | :white_check_mark: |
 |              Practice Problems | :white_check_mark: |
 
-| 1b: How to Design Functions | Completion |
-| --------------------------: | ---------- |
-|                             |            |
-|                             |            |
-|                             |            |
+| 1b: How to Design Functions | Completion         |
+| --------------------------: | ------------------ |
+|      Full Speed HtDF Recipe | :white_check_mark: |
+|     Slow Motion HtDF Recipe |                    |
+|   A Simple Practice Example |                    |
+|    When Tests are Incorrect |                    |
+|        Varying Recipe Order |                    |
+|      Poorly Formed Problems |                    |
+|           Practice Problems |                    |
+|                        Quiz |                    |
+
+| 2: How to Design Data | Completion |
+| --------------------: | ---------- |
+|                       |            |
+|                       |            |
+|                       |            |
+|                       |            |
+|                       |            |
+|                       |            |
+|                       |            |
+|                       |            |
+|                       |            |
+|                       |            |
+|                       |            |
+|                       |            |
+|                       |            |
+
+| 3a: How to Design Worlds | Completion |
+| -----------------------: | ---------- |
+|                          |            |
+|                          |            |
+|                          |            |
+|                          |            |
+|                          |            |
+|                          |            |
+|                          |            |
+|                          |            |
+|                          |            |
+|                          |            |
+|                          |            |
+|                          |            |
+|                          |            |
+
+| 3b: Compound Data | Completion |
+| ----------------: | ---------- |
+|                   |            |
+|                   |            |
+|                   |            |
+|                   |            |
+|                   |            |
+|                   |            |
+|                   |            |
+|                   |            |
+|                   |            |
+|                   |            |
+|                   |            |
+|                   |            |
+|                   |            |
