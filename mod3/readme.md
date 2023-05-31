@@ -24,7 +24,7 @@ https://www.edx.org/course/how-to-code-simple-data
 |    Booleans and if Expressions | :white_check_mark: |
 |              Using the Stepper | :white_check_mark: |
 |         Discovering Primitives | :white_check_mark: |
-|              Practice Problems |                    |
+|              Practice Problems | :white_check_mark: |
 
 | 1b: How to Design Functions | Completion |
 | --------------------------: | ---------- |
