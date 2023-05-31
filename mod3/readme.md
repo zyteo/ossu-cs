@@ -29,7 +29,7 @@ https://www.edx.org/course/how-to-code-simple-data
 | 1b: How to Design Functions | Completion         |
 | --------------------------: | ------------------ |
 |      Full Speed HtDF Recipe | :white_check_mark: |
-|     Slow Motion HtDF Recipe |                    |
+|     Slow Motion HtDF Recipe | :white_check_mark: |
 |   A Simple Practice Example |                    |
 |    When Tests are Incorrect |                    |
 |        Varying Recipe Order |                    |
