@@ -31,7 +31,7 @@ https://www.edx.org/course/how-to-code-simple-data
 |      Full Speed HtDF Recipe | :white_check_mark: |
 |     Slow Motion HtDF Recipe | :white_check_mark: |
 |   A Simple Practice Example | :white_check_mark: |
-|    When Tests are Incorrect |                    |
+|    When Tests are Incorrect | :white_check_mark: |
 |        Varying Recipe Order |                    |
 |      Poorly Formed Problems |                    |
 |           Practice Problems |                    |
