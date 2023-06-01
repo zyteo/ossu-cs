@@ -32,7 +32,7 @@ https://www.edx.org/course/how-to-code-simple-data
 |     Slow Motion HtDF Recipe | :white_check_mark: |
 |   A Simple Practice Example | :white_check_mark: |
 |    When Tests are Incorrect | :white_check_mark: |
-|        Varying Recipe Order |                    |
+|        Varying Recipe Order | :white_check_mark: |
 |      Poorly Formed Problems |                    |
 |           Practice Problems |                    |
 |                        Quiz |                    |
