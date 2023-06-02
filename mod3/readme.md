@@ -33,7 +33,7 @@ https://www.edx.org/course/how-to-code-simple-data
 |   A Simple Practice Example | :white_check_mark: |
 |    When Tests are Incorrect | :white_check_mark: |
 |        Varying Recipe Order | :white_check_mark: |
-|      Poorly Formed Problems |                    |
+|      Poorly Formed Problems | :white_check_mark: |
 |           Practice Problems |                    |
 |                        Quiz |                    |
 
