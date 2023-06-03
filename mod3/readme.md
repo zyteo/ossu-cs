@@ -34,24 +34,25 @@ https://www.edx.org/course/how-to-code-simple-data
 |    When Tests are Incorrect | :white_check_mark: |
 |        Varying Recipe Order | :white_check_mark: |
 |      Poorly Formed Problems | :white_check_mark: |
-|           Practice Problems |                    |
-|                        Quiz |                    |
+|           Practice Problems | :white_check_mark: |
+|                        Quiz | :white_check_mark: |
 
-| 2: How to Design Data | Completion |
-| --------------------: | ---------- |
-|                       |            |
-|                       |            |
-|                       |            |
-|                       |            |
-|                       |            |
-|                       |            |
-|                       |            |
-|                       |            |
-|                       |            |
-|                       |            |
-|                       |            |
-|                       |            |
-|                       |            |
+|                  2: How to Design Data | Completion |
+| -------------------------------------: | ---------- |
+|                       cond Expressions |            |
+|                       Data Definitions |            |
+|                    Atomic Non-Distinct |            |
+|           HtDF With Non-Primitive Data |            |
+| HtDF X Structure of Data Orthogonality |            |
+|                               Interval |            |
+|                            Enumeration |            |
+|                            Itemization |            |
+|                     HtDF with Interval |            |
+|                  HtDF with Enumeration |            |
+|                  HtDF with Itemization |            |
+| Structure of Information Flows Through |            |
+|                      Practice Problems |            |
+|                                   Quiz |            |
 
 | 3a: How to Design Worlds | Completion |
 | -----------------------: | ---------- |
