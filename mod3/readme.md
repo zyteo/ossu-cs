@@ -40,7 +40,7 @@ https://www.edx.org/course/how-to-code-simple-data
 |                  2: How to Design Data | Completion         |
 | -------------------------------------: | ------------------ |
 |                       cond Expressions | :white_check_mark: |
-|                       Data Definitions |                    |
+|                       Data Definitions | :white_check_mark: |
 |                    Atomic Non-Distinct |                    |
 |           HtDF With Non-Primitive Data |                    |
 | HtDF X Structure of Data Orthogonality |                    |
