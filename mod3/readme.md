@@ -41,7 +41,7 @@ https://www.edx.org/course/how-to-code-simple-data
 | -------------------------------------: | ------------------ |
 |                       cond Expressions | :white_check_mark: |
 |                       Data Definitions | :white_check_mark: |
-|                    Atomic Non-Distinct |                    |
+|                    Atomic Non-Distinct | :white_check_mark: |
 |           HtDF With Non-Primitive Data |                    |
 | HtDF X Structure of Data Orthogonality |                    |
 |                               Interval |                    |
