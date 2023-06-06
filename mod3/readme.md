@@ -44,7 +44,7 @@ https://www.edx.org/course/how-to-code-simple-data
 |                    Atomic Non-Distinct | :white_check_mark: |
 |           HtDF With Non-Primitive Data | :white_check_mark: |
 | HtDF X Structure of Data Orthogonality | :white_check_mark: |
-|                               Interval |                    |
+|                               Interval | :white_check_mark: |
 |                            Enumeration |                    |
 |                            Itemization |                    |
 |                     HtDF with Interval |                    |
