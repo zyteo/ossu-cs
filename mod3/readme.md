@@ -45,8 +45,8 @@ https://www.edx.org/course/how-to-code-simple-data
 |           HtDF With Non-Primitive Data | :white_check_mark: |
 | HtDF X Structure of Data Orthogonality | :white_check_mark: |
 |                               Interval | :white_check_mark: |
-|                            Enumeration |                    |
-|                            Itemization |                    |
+|                            Enumeration | :white_check_mark: |
+|                            Itemization | :white_check_mark: |
 |                     HtDF with Interval |                    |
 |                  HtDF with Enumeration |                    |
 |                  HtDF with Itemization |                    |
