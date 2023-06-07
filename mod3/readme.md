@@ -48,7 +48,7 @@ https://www.edx.org/course/how-to-code-simple-data
 |                            Enumeration | :white_check_mark: |
 |                            Itemization | :white_check_mark: |
 |                     HtDF with Interval | :white_check_mark: |
-|                  HtDF with Enumeration |                    |
+|                  HtDF with Enumeration | :white_check_mark: |
 |                  HtDF with Itemization |                    |
 | Structure of Information Flows Through |                    |
 |                      Practice Problems |                    |
