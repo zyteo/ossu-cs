@@ -52,7 +52,7 @@ https://www.edx.org/course/how-to-code-simple-data
 |                  HtDF with Itemization | :white_check_mark: |
 | Structure of Information Flows Through | :white_check_mark: |
 |                      Practice Problems | :white_check_mark: |
-|                                   Quiz |                    |
+|                                   Quiz | :white_check_mark: |
 
 | 3a: How to Design Worlds | Completion |
 | -----------------------: | ---------- |
