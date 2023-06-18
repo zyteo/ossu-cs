@@ -54,21 +54,16 @@ https://www.edx.org/course/how-to-code-simple-data
 |                      Practice Problems | :white_check_mark: |
 |                                   Quiz | :white_check_mark: |
 
-| 3a: How to Design Worlds | Completion |
-| -----------------------: | ---------- |
-|                          |            |
-|                          |            |
-|                          |            |
-|                          |            |
-|                          |            |
-|                          |            |
-|                          |            |
-|                          |            |
-|                          |            |
-|                          |            |
-|                          |            |
-|                          |            |
-|                          |            |
+|                    3a: How to Design Worlds | Completion         |
+| ------------------------------------------: | ------------------ |
+|                        Interactive Programs | :white_check_mark: |
+|                      The big-bang Mechanism | :white_check_mark: |
+|                             Domain Analysis |                    |
+|               Program through main Function |                    |
+|               Working through the Wish List |                    |
+|       Improving a World Program - Add SPEED |                    |
+| Improving a World Program - Add key handler |                    |
+|                           Practice Problems |                    |
 
 | 3b: Compound Data | Completion |
 | ----------------: | ---------- |
@@ -85,3 +80,83 @@ https://www.edx.org/course/how-to-code-simple-data
 |                   |            |
 |                   |            |
 |                   |            |
+
+| 4a: Self-Reference | Completion |
+| -----------------: | ---------- |
+|                    |            |
+|                    |            |
+|                    |            |
+|                    |            |
+|                    |            |
+|                    |            |
+|                    |            |
+|                    |            |
+|                    |            |
+|                    |            |
+|                    |            |
+|                    |            |
+|                    |            |
+
+| 4b: Reference | Completion |
+| ------------: | ---------- |
+|               |            |
+|               |            |
+|               |            |
+|               |            |
+|               |            |
+|               |            |
+|               |            |
+|               |            |
+|               |            |
+|               |            |
+|               |            |
+|               |            |
+|               |            |
+
+| 5a: Naturals | Completion |
+| -----------: | ---------- |
+|              |            |
+|              |            |
+|              |            |
+|              |            |
+|              |            |
+|              |            |
+|              |            |
+|              |            |
+|              |            |
+|              |            |
+|              |            |
+|              |            |
+|              |            |
+
+| 5b: Helpers | Completion |
+| ----------: | ---------- |
+|             |            |
+|             |            |
+|             |            |
+|             |            |
+|             |            |
+|             |            |
+|             |            |
+|             |            |
+|             |            |
+|             |            |
+|             |            |
+|             |            |
+|             |            |
+
+| 6: Binary Search Trees | Completion |
+| ---------------------: | ---------- |
+|                        |            |
+|                        |            |
+|                        |            |
+|                        |            |
+|                        |            |
+|                        |            |
+|                        |            |
+|                        |            |
+|                        |            |
+|                        |            |
+|                        |            |
+|                        |            |
+|                        |            |
