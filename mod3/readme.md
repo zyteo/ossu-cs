@@ -58,7 +58,7 @@ https://www.edx.org/course/how-to-code-simple-data
 | ------------------------------------------: | ------------------ |
 |                        Interactive Programs | :white_check_mark: |
 |                      The big-bang Mechanism | :white_check_mark: |
-|                             Domain Analysis |                    |
+|                             Domain Analysis | :white_check_mark: |
 |               Program through main Function |                    |
 |               Working through the Wish List |                    |
 |       Improving a World Program - Add SPEED |                    |
