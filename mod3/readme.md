@@ -62,7 +62,7 @@ https://www.edx.org/course/how-to-code-simple-data
 |               Program through main Function | :white_check_mark: |
 |               Working through the Wish List | :white_check_mark: |
 |       Improving a World Program - Add SPEED | :white_check_mark: |
-| Improving a World Program - Add key handler |                    |
+| Improving a World Program - Add key handler | :white_check_mark: |
 |                           Practice Problems |                    |
 
 | 3b: Compound Data | Completion |
