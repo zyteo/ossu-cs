@@ -61,7 +61,7 @@ https://www.edx.org/course/how-to-code-simple-data
 |                             Domain Analysis | :white_check_mark: |
 |               Program through main Function | :white_check_mark: |
 |               Working through the Wish List | :white_check_mark: |
-|       Improving a World Program - Add SPEED |                    |
+|       Improving a World Program - Add SPEED | :white_check_mark: |
 | Improving a World Program - Add key handler |                    |
 |                           Practice Problems |                    |
 
