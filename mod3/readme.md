@@ -4,6 +4,8 @@ https://www.edx.org/course/how-to-code-simple-data
 
 ## How to Code: Simple Data
 
+### edX course expired. Might put this aside first.
+
 |     0: Introduction | Completion         |
 | ------------------: | ------------------ |
 |             Welcome | :white_check_mark: |
