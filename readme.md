@@ -11,7 +11,7 @@ https://github.com/ossu/computer-science
 
 ## Core CS
 
-|  No | Module                     | Completion            |
-| --: | -------------------------- | --------------------- |
-|   3 | How to Code - Simple Data  | :pencil2: In Progress |
-|   4 | How to Code - Complex Data |                       |
+|  No | Module                     | Completion                                |
+| --: | -------------------------- | ----------------------------------------- |
+|   3 | How to Code - Simple Data  | :pencil2: May - Jul 2023 (Course expired) |
+|   4 | How to Code - Complex Data |                                           |

@@ -4,7 +4,7 @@ https://www.edx.org/course/how-to-code-simple-data
 
 ## How to Code: Simple Data
 
-### edX course expired. Might put this aside first.
+### edX course expired. Will put this aside first. Didn't really have good experience using edX. Might move forward with other courses.
 
 |     0: Introduction | Completion         |
 | ------------------: | ------------------ |
